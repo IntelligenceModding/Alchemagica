@@ -19,7 +19,7 @@ public class DataProvider {
         generator.addProvider(true, new ModelAndBlockStateProvider(generator, existingFileHelper));
         generator.addProvider(true, new ItemModelProvider(generator, existingFileHelper));
         generator.addProvider(true, new LanguageProvider(generator, "en_us"));
-        //generator.addProvider(true, new BlockLootTablesProvider(generator));
+        generator.addProvider(true, new BlockLootTablesProvider(generator));
         generator.addProvider(true, new RecipesProvider(generator));
     }
 

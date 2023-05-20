@@ -16,6 +16,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add("itemGroup.alchemagica", "Alchemagica");
         add(ModItems.ARCANE_BLOSSOM_SEED.get(), "Arcane Blossom Seed");
         add(ModItems.ARCANE_BLOSSOM_PETAL.get(), "Arcane Blossom Petal");
+        add(ModItems.ARCANE_SHARD.get(), "Arcane Shard");
+        add(ModItems.ARCANE_SHEARS.get(), "Arcane Shears");
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
     }
 }

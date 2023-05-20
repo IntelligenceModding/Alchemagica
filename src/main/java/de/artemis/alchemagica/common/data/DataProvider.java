@@ -21,6 +21,8 @@ public class DataProvider {
         generator.addProvider(true, new LanguageProvider(generator, "en_us"));
         generator.addProvider(true, new BlockLootTablesProvider(generator));
         generator.addProvider(true, new RecipesProvider(generator));
+        generator.addProvider(true, new TagsProvider.ItemTagsProvider(generator, existingFileHelper));
+        generator.addProvider(true, new TagsProvider.BlockTagsProvider(generator, existingFileHelper));
     }
 
     public static String getRegistryName(Item item) {

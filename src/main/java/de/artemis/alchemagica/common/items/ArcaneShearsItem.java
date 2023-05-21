@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.NotNull;
 
 public class ArcaneShearsItem extends TieredItem {
 
@@ -54,7 +53,8 @@ public class ArcaneShearsItem extends TieredItem {
         }
     }
 
-    public net.minecraft.world.@NotNull InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
+    @Override
+    public net.minecraft.world.InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
         if (entity instanceof net.minecraftforge.common.IForgeShearable target) {
             if (entity.level.isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
             BlockPos pos = new BlockPos(entity.getX(), entity.getY(), entity.getZ());
@@ -73,11 +73,12 @@ public class ArcaneShearsItem extends TieredItem {
         return net.minecraft.world.InteractionResult.PASS;
     }
 
+    @Override
     public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
         return net.minecraftforge.common.ToolActions.DEFAULT_SHEARS_ACTIONS.contains(toolAction);
     }
 
-    public @NotNull InteractionResult useOn(UseOnContext pContext) {
+    public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
@@ -104,4 +105,5 @@ public class ArcaneShearsItem extends TieredItem {
 
         return super.useOn(pContext);
     }
+
 }

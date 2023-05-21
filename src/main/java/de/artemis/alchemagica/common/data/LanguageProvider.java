@@ -18,6 +18,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.ARCANE_BLOSSOM_PETAL.get(), "Arcane Blossom Petal");
         add(ModItems.ARCANE_SHARD.get(), "Arcane Shard");
         add(ModItems.ARCANE_SHEARS.get(), "Arcane Shears");
+        add(ModItems.ARCANE_POWDER.get(), "Arcane Powder");
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
     }
 }

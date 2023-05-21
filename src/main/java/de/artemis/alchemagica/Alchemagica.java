@@ -29,7 +29,7 @@ public class Alchemagica {
         @Override
         public void fillItemList(@NotNull NonNullList<ItemStack> items) {
             ArrayList<Item> blockList = new ArrayList<>();
-            Collections.addAll(blockList, ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_SHARD.get(), ModItems.ARCANE_SHEARS.get());
+            Collections.addAll(blockList, ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_SHARD.get(), ModItems.ARCANE_POWDER.get(), ModItems.ARCANE_SHEARS.get());
 
             int run = 0;
             for (Item x : blockList) {

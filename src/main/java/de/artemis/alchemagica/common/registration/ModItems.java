@@ -17,6 +17,9 @@ public class ModItems {
     public static final RegistryObject<Item> ARCANE_SHARD = Registration.ITEMS.register("arcane_shard",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> ARCANE_POWDER = Registration.ITEMS.register("arcane_powder",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
     public static final RegistryObject<ArcaneShearsItem> ARCANE_SHEARS = Registration.ITEMS.register("arcane_shears",
             () -> new ArcaneShearsItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB).durability(238)));
 

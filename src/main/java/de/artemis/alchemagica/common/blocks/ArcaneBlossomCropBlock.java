@@ -72,8 +72,6 @@ public class ArcaneBlossomCropBlock extends CropBlock {
                     ItemEntity itemEntity = new ItemEntity(level, blockPos.getX() + 0.5F, blockPos.getY() + 0.5F, blockPos.getZ() + 0.5F, new ItemStack(petal.get()));
                     itemEntity.setDefaultPickUpDelay();
                     level.addFreshEntity(itemEntity);
-                } else if (!player.getInventory().add(new ItemStack(petal.get()))){
-                    player.addItem(new ItemStack(petal.get()));
                 }
             }
 

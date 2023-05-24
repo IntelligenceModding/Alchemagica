@@ -1,6 +1,7 @@
 package de.artemis.alchemagica.common.registration;
 
 import de.artemis.alchemagica.Alchemagica;
+import de.artemis.alchemagica.common.items.ArcanePickaxeItem;
 import de.artemis.alchemagica.common.items.ArcaneShearsItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -28,6 +29,9 @@ public class ModItems {
 
     public static final RegistryObject<ArcaneShearsItem> ARCANE_SHEARS = Registration.ITEMS.register("arcane_shears",
             () -> new ArcaneShearsItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB).durability(238)));
+
+    public static final RegistryObject<ArcanePickaxeItem> ARCANE_PICKAXE = Registration.ITEMS.register("arcane_pickaxe",
+            () -> new ArcanePickaxeItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
     public static void register() {
     }

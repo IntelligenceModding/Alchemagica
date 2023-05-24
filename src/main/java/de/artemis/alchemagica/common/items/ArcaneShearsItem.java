@@ -1,6 +1,6 @@
 package de.artemis.alchemagica.common.items;
 
-import de.artemis.alchemagica.common.registration.ModToolTiers;
+import de.artemis.alchemagica.common.registration.ModTiers;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -22,9 +22,8 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ArcaneShearsItem extends TieredItem {
-
     public ArcaneShearsItem(Item.Properties properties) {
-        super(ModToolTiers.ARCANE, properties);
+        super(ModTiers.ARCANE, properties);
     }
 
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {

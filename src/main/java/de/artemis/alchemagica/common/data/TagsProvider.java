@@ -2,6 +2,7 @@ package de.artemis.alchemagica.common.data;
 
 import de.artemis.alchemagica.Alchemagica;
 import de.artemis.alchemagica.common.registration.ModBlocks;
+import de.artemis.alchemagica.common.registration.ModTags;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +27,7 @@ public class TagsProvider {
         @Override
         protected void addTags() {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
+            tag(ModTags.Block.NEEDS_ARCANE_TOOL).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         }
 
         @NotNull

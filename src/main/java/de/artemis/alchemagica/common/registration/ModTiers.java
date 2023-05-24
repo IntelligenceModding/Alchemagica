@@ -10,13 +10,13 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 import java.util.List;
 
-public class ModToolTiers {
+public class ModTiers {
     public static Tier ARCANE;
 
     static {
         ARCANE = TierSortingRegistry.registerTier(
-                new ForgeTier(5, 100, 6.0F, 4.0F, 15,
+                new ForgeTier(1, 250, 6.0F, 2.0F, 14,
                         ModTags.Block.NEEDS_ARCANE_TOOL, () -> Ingredient.of(ModItems.ARCANE_SHARD.get())),
-                new ResourceLocation(Alchemagica.MOD_ID, "arcane"), List.of(Tiers.NETHERITE), List.of());
+                new ResourceLocation(Alchemagica.MOD_ID, "arcane"), List.of(Tiers.STONE), List.of());
     }
 }

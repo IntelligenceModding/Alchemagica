@@ -24,6 +24,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.ARCANE_POWDER.get());
         simpleItem(ModItems.ANCIENT_PETAL_FRAGMENT.get());
         simpleItem(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
+        simpleItem(ModItems.ARCANE_PICKAXE.get());
 
         simpleBlock(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
     }

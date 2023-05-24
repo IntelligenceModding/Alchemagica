@@ -21,6 +21,7 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         cropBlockMaxStageThree(ModBlocks.ARCANE_BLOSSOM.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_blossom_flower"), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_blossom_base"));
+        simpleBlock(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
     }
 
     public void cropBlockMaxStageThree(Block block, ResourceLocation texture_flower, ResourceLocation texture_base) {

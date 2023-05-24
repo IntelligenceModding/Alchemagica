@@ -2,16 +2,15 @@ package de.artemis.alchemagica.common.blocks;
 
 import de.artemis.alchemagica.common.registration.ModItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -21,6 +20,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -30,12 +31,18 @@ public class ArcaneBlossomCropBlock extends CropBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     private final Supplier<ItemLike> seed;
     private final Supplier<ItemLike> petal;
+    protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 2.0D, 11.0D);
 
     public ArcaneBlossomCropBlock(Properties properties, Supplier<ItemLike> seed, Supplier<ItemLike> petal) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
         this.seed = seed;
         this.petal = petal;
+    }
+
+    @Override
+    public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext context) {
+        return SHAPE;
     }
 
     @NotNull
@@ -45,7 +52,7 @@ public class ArcaneBlossomCropBlock extends CropBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         interactionHand = InteractionHand.MAIN_HAND;
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
 

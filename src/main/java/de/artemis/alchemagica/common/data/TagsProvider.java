@@ -1,9 +1,11 @@
 package de.artemis.alchemagica.common.data;
 
 import de.artemis.alchemagica.Alchemagica;
+import de.artemis.alchemagica.common.registration.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -23,6 +25,7 @@ public class TagsProvider {
 
         @Override
         protected void addTags() {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         }
 
         @NotNull

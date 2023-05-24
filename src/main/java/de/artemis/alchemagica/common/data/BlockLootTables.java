@@ -22,6 +22,7 @@ public class BlockLootTables extends BlockLoot {
     protected void addTables() {
         LootItemCondition.Builder arcaneBlossomCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ARCANE_BLOSSOM.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ArcaneBlossomCropBlock.AGE, 3));
         add(ModBlocks.ARCANE_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.ARCANE_BLOSSOM.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_BLOSSOM_SEED.get(), arcaneBlossomCondition));
+        add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), createOreDrop(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), ModItems.ANCIENT_PETAL_FRAGMENT.get()));
     }
 
     protected static LootTable.Builder createBlossomCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alchemagica:item/marvelous_ancient_petal_fragment"
+  }
+}

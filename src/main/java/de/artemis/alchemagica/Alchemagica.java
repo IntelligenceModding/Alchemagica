@@ -1,5 +1,6 @@
 package de.artemis.alchemagica;
 
+import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.Registration;
 import net.minecraft.core.NonNullList;
@@ -29,7 +30,7 @@ public class Alchemagica {
         @Override
         public void fillItemList(@NotNull NonNullList<ItemStack> items) {
             ArrayList<Item> blockList = new ArrayList<>();
-            Collections.addAll(blockList, ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_SHARD.get(), ModItems.ARCANE_POWDER.get(), ModItems.ARCANE_SHEARS.get());
+            Collections.addAll(blockList, ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_SHARD.get(), ModItems.ARCANE_POWDER.get(), ModItems.ARCANE_SHEARS.get(), ModBlocks.ANCIENT_PETAL_CLUSTER.get().asItem(), ModItems.ANCIENT_PETAL_FRAGMENT.get(), ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
 
             int run = 0;
             for (Item x : blockList) {

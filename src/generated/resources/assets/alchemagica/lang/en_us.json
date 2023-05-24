@@ -1,9 +1,12 @@
 {
+  "block.alchemagica.ancient_petal_cluster": "Ancient Petal Cluster",
   "block.alchemagica.arcane_blossom": "Arcane Blossom",
+  "item.alchemagica.ancient_petal_fragment": "Ancient Petal Fragment",
   "item.alchemagica.arcane_blossom_petal": "Arcane Blossom Petal",
   "item.alchemagica.arcane_blossom_seed": "Arcane Blossom Seed",
   "item.alchemagica.arcane_powder": "Arcane Powder",
   "item.alchemagica.arcane_shard": "Arcane Shard",
   "item.alchemagica.arcane_shears": "Arcane Shears",
+  "item.alchemagica.marvelous_ancient_petal_fragment": "Marvelous Ancient Petal Fragment",
   "itemGroup.alchemagica": "Alchemagica"
 }

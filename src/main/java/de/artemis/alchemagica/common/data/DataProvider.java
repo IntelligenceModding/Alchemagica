@@ -3,6 +3,7 @@ package de.artemis.alchemagica.common.data;
 import de.artemis.alchemagica.Alchemagica;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,8 +30,16 @@ public class DataProvider {
         return item.builtInRegistryHolder().key().location().toString();
     }
 
-    public static String getRawRegistryName(Item item) {
+    public static String getRegistryNamePath(Item item) {
         return item.builtInRegistryHolder().key().location().getPath().toString();
+    }
+
+    public static String getRegistryName(Block block) {
+        return block.builtInRegistryHolder().key().location().toString();
+    }
+
+    public static String getRegistryNamePath(Block block) {
+        return block.builtInRegistryHolder().key().location().getPath().toString();
     }
 
 }

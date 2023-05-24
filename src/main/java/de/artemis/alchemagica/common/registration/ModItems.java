@@ -20,6 +20,12 @@ public class ModItems {
     public static final RegistryObject<Item> ARCANE_POWDER = Registration.ITEMS.register("arcane_powder",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> ANCIENT_PETAL_FRAGMENT = Registration.ITEMS.register("ancient_petal_fragment",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> MARVELOUS_ANCIENT_PETAL_FRAGMENT = Registration.ITEMS.register("marvelous_ancient_petal_fragment",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
     public static final RegistryObject<ArcaneShearsItem> ARCANE_SHEARS = Registration.ITEMS.register("arcane_shears",
             () -> new ArcaneShearsItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB).durability(238)));
 

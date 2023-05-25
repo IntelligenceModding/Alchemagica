@@ -28,10 +28,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
     public static final RegistryObject<ArcaneShearsItem> ARCANE_SHEARS = Registration.ITEMS.register("arcane_shears",
-            () -> new ArcaneShearsItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB).durability(238)));
+            () -> new ArcaneShearsItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB).durability(238)));
 
     public static final RegistryObject<ArcanePickaxeItem> ARCANE_PICKAXE = Registration.ITEMS.register("arcane_pickaxe",
-            () -> new ArcanePickaxeItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+            () -> new ArcanePickaxeItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB)));
 
     public static void register() {
     }

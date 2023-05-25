@@ -14,6 +14,13 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
     @Override
     protected void addTranslations() {
         add("itemGroup.alchemagica", "Alchemagica");
+
+        add("keybind.alchemagica.category", "Alchemagica");
+        add("keybind.alchemagica.toggle_description_keybind", "Show Description");
+
+        add("tooltip.alchemagica.arcanepickaxe", "Use this Arcane Pickaxe to gather Marvelous Ancient Petal Fragments from Ancient Petal Clusters");
+        add("tooltip.alchemagica.arcaneshears", "Use this Arcane Shears to gather petals from blossoms without the need to destroy them");
+
         add(ModItems.ARCANE_BLOSSOM_SEED.get(), "Arcane Blossom Seed");
         add(ModItems.ARCANE_BLOSSOM_PETAL.get(), "Arcane Blossom Petal");
         add(ModItems.ARCANE_SHARD.get(), "Arcane Shard");
@@ -22,6 +29,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.ANCIENT_PETAL_FRAGMENT.get(), "Ancient Petal Fragment");
         add(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get(), "Marvelous Ancient Petal Fragment");
         add(ModItems.ARCANE_PICKAXE.get(), "Arcane Pickaxe");
+
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), "Ancient Petal Cluster");
     }

@@ -9,5 +9,9 @@
   "item.alchemagica.arcane_shard": "Arcane Shard",
   "item.alchemagica.arcane_shears": "Arcane Shears",
   "item.alchemagica.marvelous_ancient_petal_fragment": "Marvelous Ancient Petal Fragment",
-  "itemGroup.alchemagica": "Alchemagica"
+  "itemGroup.alchemagica": "Alchemagica",
+  "keybind.alchemagica.category": "Alchemagica",
+  "keybind.alchemagica.toggle_description_keybind": "Show Description",
+  "tooltip.alchemagica.arcanepickaxe": "Use this Arcane Pickaxe to gather Marvelous Ancient Petal Fragments from Ancient Petal Clusters",
+  "tooltip.alchemagica.arcaneshears": "Use this Arcane Shears to gather petals from blossoms without the need to destroy them"
 }

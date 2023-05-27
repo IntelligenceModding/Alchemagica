@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "alchemagica:generation/item_with_glint_particle",
   "textures": {
-    "layer0": "alchemagica:item/marvelous_ancient_petal_fragment"
+    "texture": "alchemagica:item/marvelous_ancient_petal_fragment"
   }
 }

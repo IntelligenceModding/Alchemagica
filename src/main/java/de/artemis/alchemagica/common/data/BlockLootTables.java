@@ -36,7 +36,7 @@ public class BlockLootTables extends BlockLoot {
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), createOreDrop(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), ModItems.ANCIENT_PETAL_FRAGMENT.get()));
         dropSelf(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), noDrop());
-        add(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), createSilkTouchDispatchTable(ModBlocks.ARCANE_CRYSTAL_BLOCK.get(), LootItem.lootTableItem(ModItems.ARCANE_CRYSTAL_SHARD.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(applyExplosionDecay(ModItems.ARCANE_CRYSTAL_SHARD.get(), LootItem.lootTableItem(ModItems.ARCANE_CRYSTAL_SHARD.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))));
+        add(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), createSilkTouchDispatchTable(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), LootItem.lootTableItem(ModItems.ARCANE_CRYSTAL_SHARD.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)).when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES))).otherwise(applyExplosionDecay(ModItems.ARCANE_CRYSTAL_SHARD.get(), LootItem.lootTableItem(ModItems.ARCANE_CRYSTAL_SHARD.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))));
         dropWhenSilkTouch(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get());
         dropWhenSilkTouch(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get());
         dropWhenSilkTouch(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get());

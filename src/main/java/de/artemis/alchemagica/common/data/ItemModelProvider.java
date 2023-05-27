@@ -24,22 +24,28 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.ARCANE_SHEARS.get());
         simpleItem(ModItems.ARCANE_CRYSTAL_POWDER.get());
         simpleItem(ModItems.ANCIENT_PETAL_FRAGMENT.get());
-        simpleItem(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
         simpleItem(ModItems.ARCANE_PICKAXE.get());
+
+        itemWithParticle(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
 
         simpleBlockItem(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get());
 
         advancedBlockItem(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get(), Alchemagica.MOD_ID + ":generation/arcane_crystal_bud");
         advancedBlockItem(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get(), Alchemagica.MOD_ID + ":generation/arcane_crystal_bud");
         advancedBlockItem(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get(), Alchemagica.MOD_ID + ":generation/arcane_crystal_bud");
-        advancedBlockItem(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), Alchemagica.MOD_ID + ":generation/arcane_crystal_cluster");
 
+        simpleBlock(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         simpleBlock(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         simpleBlock(ModBlocks.BUDDING_ARCANE_CRYSTAL.get());
     }
 
     private void simpleItem(Item item) {
         withExistingParent(DataProvider.getRegistryName(item), "item/generated").texture("layer0", new ResourceLocation(this.modid, "item/" +
+                DataProvider.getRegistryNamePath(item)));
+    }
+
+    private void itemWithParticle(Item item) {
+        withExistingParent(DataProvider.getRegistryName(item), this.modid + ":generation/item_with_glint_particle").texture("texture", new ResourceLocation(this.modid, "item/" +
                 DataProvider.getRegistryNamePath(item)));
     }
 

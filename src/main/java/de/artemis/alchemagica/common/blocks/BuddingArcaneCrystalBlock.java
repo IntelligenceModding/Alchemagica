@@ -1,5 +1,6 @@
 package de.artemis.alchemagica.common.blocks;
 
+import de.artemis.alchemagica.common.registration.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -26,13 +27,13 @@ public class BuddingArcaneCrystalBlock extends BuddingAmethystBlock {
             BlockState blockstate = serverLevel.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = Blocks.SMALL_AMETHYST_BUD;
-            } else if (blockstate.is(Blocks.SMALL_AMETHYST_BUD) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
-                block = Blocks.MEDIUM_AMETHYST_BUD;
-            } else if (blockstate.is(Blocks.MEDIUM_AMETHYST_BUD) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
-                block = Blocks.LARGE_AMETHYST_BUD;
-            } else if (blockstate.is(Blocks.LARGE_AMETHYST_BUD) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
-                block = Blocks.AMETHYST_CLUSTER;
+                block = ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get();
+            } else if (blockstate.is(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
+                block = ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get();
+            } else if (blockstate.is(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
+                block = ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get();
+            } else if (blockstate.is(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
+                block = ModBlocks.ARCANE_CRYSTAL_CLUSTER.get();
             }
 
             if (block != null) {

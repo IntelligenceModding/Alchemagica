@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "alchemagica:arcane_crystal_block"
+              "name": "alchemagica:arcane_crystal_cluster"
             },
             {
               "type": "minecraft:alternatives",

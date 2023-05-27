@@ -1,0 +1,6 @@
+{
+  "parent": "alchemagica:generation/arcane_crystal_bud",
+  "textures": {
+    "texture": "alchemagica:block/medium_arcane_crystal_bud"
+  }
+}

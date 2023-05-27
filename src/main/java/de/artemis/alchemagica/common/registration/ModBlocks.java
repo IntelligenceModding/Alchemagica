@@ -1,15 +1,15 @@
 package de.artemis.alchemagica.common.registration;
 
 import de.artemis.alchemagica.Alchemagica;
-import de.artemis.alchemagica.common.blocks.AncientPetalClusterBlock;
-import de.artemis.alchemagica.common.blocks.ArcaneBlossomCropBlock;
+import de.artemis.alchemagica.common.blocks.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
@@ -20,7 +20,25 @@ public class ModBlocks {
             () -> new ArcaneBlossomCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP), ModItems.ARCANE_BLOSSOM_SEED::get, ModItems.ARCANE_BLOSSOM_PETAL::get));
 
     public static final RegistryObject<AncientPetalClusterBlock> ANCIENT_PETAL_CLUSTER = register("ancient_petal_cluster",
-            () -> new AncientPetalClusterBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+            () -> new AncientPetalClusterBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+
+    public static final RegistryObject<ArcaneCrystalBlock> ARCANE_CRYSTAL_BLOCK = register("arcane_crystal_block",
+            () -> new ArcaneCrystalBlock(BlockBehaviour.Properties.of(Material.AMETHYST).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<BuddingArcaneCrystalBlock> BUDDING_ARCANE_CRYSTAL = register("budding_arcane_crystal",
+            () -> new BuddingArcaneCrystalBlock(BlockBehaviour.Properties.of(Material.AMETHYST).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<ArcaneClusterBlock> ARCANE_CRYSTAL_CLUSTER = register("arcane_crystal_cluster",
+            () -> new ArcaneClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST).noOcclusion().randomTicks().strength(1.5F).sound(SoundType.AMETHYST_CLUSTER).requiresCorrectToolForDrops().lightLevel((p_152632_) -> 5)));
+
+    public static final RegistryObject<ArcaneClusterBlock> LARGE_ARCANE_CRYSTAL_BUD = register("large_arcane_crystal_bud",
+            () -> new ArcaneClusterBlock(5, 3, BlockBehaviour.Properties.copy(ARCANE_CRYSTAL_CLUSTER.get()).sound(SoundType.LARGE_AMETHYST_BUD).lightLevel((p_152632_) -> 4)));
+
+    public static final RegistryObject<ArcaneClusterBlock> MEDIUM_ARCANE_CRYSTAL_BUD = register("medium_arcane_crystal_bud",
+            () -> new ArcaneClusterBlock(4, 3, BlockBehaviour.Properties.copy(ARCANE_CRYSTAL_CLUSTER.get()).sound(SoundType.MEDIUM_AMETHYST_BUD).lightLevel((p_152632_) -> 2)));
+
+    public static final RegistryObject<ArcaneClusterBlock> SMALL_ARCANE_CRYSTAL_BUD = register("small_arcane_crystal_bud",
+            () -> new ArcaneClusterBlock(3, 3, BlockBehaviour.Properties.copy(ARCANE_CRYSTAL_CLUSTER.get()).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((p_152632_) -> 1)));
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = Registration.BLOCKS.register(name, block);

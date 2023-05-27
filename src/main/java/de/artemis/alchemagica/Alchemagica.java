@@ -30,7 +30,7 @@ public class Alchemagica {
         @Override
         public void fillItemList(@NotNull NonNullList<ItemStack> items) {
             ArrayList<Item> blockList = new ArrayList<>();
-            Collections.addAll(blockList, ModItems.ARCANE_PICKAXE.get(), ModItems.ARCANE_SHEARS.get(), ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_SHARD.get(), ModItems.ARCANE_POWDER.get(), ModBlocks.ANCIENT_PETAL_CLUSTER.get().asItem(), ModItems.ANCIENT_PETAL_FRAGMENT.get(), ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
+            Collections.addAll(blockList, ModItems.ARCANE_PICKAXE.get(), ModItems.ARCANE_SHEARS.get(), ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModBlocks.ARCANE_CRYSTAL_BLOCK.get().asItem(), ModBlocks.BUDDING_ARCANE_CRYSTAL.get().asItem(), ModBlocks.ARCANE_CRYSTAL_CLUSTER.get().asItem(), ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get().asItem(), ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get().asItem(), ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get().asItem(), ModItems.ARCANE_CRYSTAL_SHARD.get(), ModItems.ARCANE_CRYSTAL_POWDER.get(), ModBlocks.ANCIENT_PETAL_CLUSTER.get().asItem(), ModItems.ANCIENT_PETAL_FRAGMENT.get(), ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
 
             int run = 0;
             for (Item x : blockList) {

@@ -15,10 +15,10 @@ public class ModItems {
     public static final RegistryObject<Item> ARCANE_BLOSSOM_PETAL = Registration.ITEMS.register("arcane_blossom_petal",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
-    public static final RegistryObject<Item> ARCANE_SHARD = Registration.ITEMS.register("arcane_shard",
+    public static final RegistryObject<Item> ARCANE_CRYSTAL_SHARD = Registration.ITEMS.register("arcane_crystal_shard",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
-    public static final RegistryObject<Item> ARCANE_POWDER = Registration.ITEMS.register("arcane_powder",
+    public static final RegistryObject<Item> ARCANE_CRYSTAL_POWDER = Registration.ITEMS.register("arcane_crystal_powder",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
     public static final RegistryObject<Item> ANCIENT_PETAL_FRAGMENT = Registration.ITEMS.register("ancient_petal_fragment",

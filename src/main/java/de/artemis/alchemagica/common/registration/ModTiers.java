@@ -16,7 +16,7 @@ public class ModTiers {
     static {
         ARCANE = TierSortingRegistry.registerTier(
                 new ForgeTier(1, 250, 6.0F, 2.0F, 14,
-                        ModTags.Block.NEEDS_ARCANE_TOOL, () -> Ingredient.of(ModItems.ARCANE_SHARD.get())),
+                        ModTags.Block.NEEDS_ARCANE_TOOL, () -> Ingredient.of(ModItems.ARCANE_CRYSTAL_SHARD.get())),
                 new ResourceLocation(Alchemagica.MOD_ID, "arcane"), List.of(Tiers.STONE), List.of());
     }
 }

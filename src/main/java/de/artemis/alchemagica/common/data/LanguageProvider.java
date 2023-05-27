@@ -23,14 +23,20 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
 
         add(ModItems.ARCANE_BLOSSOM_SEED.get(), "Arcane Blossom Seed");
         add(ModItems.ARCANE_BLOSSOM_PETAL.get(), "Arcane Blossom Petal");
-        add(ModItems.ARCANE_SHARD.get(), "Arcane Shard");
+        add(ModItems.ARCANE_CRYSTAL_SHARD.get(), "Arcane Crystal Shard");
         add(ModItems.ARCANE_SHEARS.get(), "Arcane Shears");
-        add(ModItems.ARCANE_POWDER.get(), "Arcane Powder");
+        add(ModItems.ARCANE_CRYSTAL_POWDER.get(), "Arcane Crystal Powder");
         add(ModItems.ANCIENT_PETAL_FRAGMENT.get(), "Ancient Petal Fragment");
         add(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get(), "Marvelous Ancient Petal Fragment");
         add(ModItems.ARCANE_PICKAXE.get(), "Arcane Pickaxe");
 
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), "Ancient Petal Cluster");
+        add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get(), "Arcane Crystal Block");
+        add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), "Budding Arcane Crystal");
+        add(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), "Arcane Crystal Cluster");
+        add(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get(), "Large Arcane Crystal Bud");
+        add(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get(), "Medium Arcane Crystal Bud");
+        add(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get(), "Small Arcane Crystal Bud");
     }
 }

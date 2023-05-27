@@ -1,5 +1,11 @@
 {
   "values": [
-    "alchemagica:ancient_petal_cluster"
+    "alchemagica:ancient_petal_cluster",
+    "alchemagica:arcane_crystal_block",
+    "alchemagica:budding_arcane_crystal",
+    "alchemagica:arcane_crystal_cluster",
+    "alchemagica:large_arcane_crystal_bud",
+    "alchemagica:medium_arcane_crystal_bud",
+    "alchemagica:small_arcane_crystal_bud"
   ]
 }

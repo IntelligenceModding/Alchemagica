@@ -1,3 +1,6 @@
 {
-  "parent": "alchemagica:block/ancient_petal_cluster"
+  "parent": "alchemagica:generation/arcane_crystal_cluster",
+  "textures": {
+    "texture": "alchemagica:block/ancient_petal_cluster"
+  }
 }

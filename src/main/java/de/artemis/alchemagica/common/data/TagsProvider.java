@@ -26,8 +26,7 @@ public class TagsProvider {
 
         @Override
         protected void addTags() {
-            tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
-            tag(ModTags.Block.NEEDS_ARCANE_TOOL).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
+            tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get()).add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get(), ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get(), ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get(), ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get());
         }
 
         @NotNull

@@ -15,15 +15,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ArcanePickaxeItem extends PickaxeItem {
-    public ArcanePickaxeItem(Properties pProperties) {
-        super(ModTiers.ARCANE, 1, -2.8F, pProperties);
+    public ArcanePickaxeItem(Properties properties) {
+        super(ModTiers.ARCANE, 1, -2.8F, properties);
     }
 
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 
         if (ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.isDown()) {
-            tooltip.add(Component.translatable("tooltip.alchemagica.arcanepickaxe").withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable("tooltip.alchemagica.arcane_pickaxe").withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(Component.translatable(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(16643423)));
         }

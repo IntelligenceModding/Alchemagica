@@ -39,7 +39,7 @@ public class ArcaneShearsItem extends TieredItem {
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 
         if (ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.isDown()) {
-            tooltip.add(Component.translatable("tooltip.alchemagica.arcaneshears").withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable("tooltip.alchemagica.arcane_shears").withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(Component.translatable(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(16643423)));
         }
@@ -47,46 +47,48 @@ public class ArcaneShearsItem extends TieredItem {
         super.appendHoverText(stack, level, tooltip, flag);
     }
 
-    public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
-        if (!pLevel.isClientSide && !pState.is(BlockTags.FIRE)) {
-            pStack.hurtAndBreak(1, pEntityLiving, (p_43076_) -> {
+    public boolean mineBlock(@NotNull ItemStack itemStack, Level pLevel, @NotNull BlockState blockState, @NotNull BlockPos blockPos, @NotNull LivingEntity livingEntity) {
+        if (!pLevel.isClientSide && !blockState.is(BlockTags.FIRE)) {
+            itemStack.hurtAndBreak(1, livingEntity, (p_43076_) -> {
                 p_43076_.broadcastBreakEvent(EquipmentSlot.MAINHAND);
             });
         }
 
-        return !pState.is(BlockTags.LEAVES) && !pState.is(Blocks.COBWEB) && !pState.is(Blocks.GRASS) && !pState.is(Blocks.FERN) && !pState.is(Blocks.DEAD_BUSH) && !pState.is(Blocks.HANGING_ROOTS) && !pState.is(Blocks.VINE) && !pState.is(Blocks.TRIPWIRE) && !pState.is(BlockTags.WOOL) ? super.mineBlock(pStack, pLevel, pState, pPos, pEntityLiving) : true;
+        return !blockState.is(BlockTags.LEAVES) && !blockState.is(Blocks.COBWEB) && !blockState.is(Blocks.GRASS) && !blockState.is(Blocks.FERN) && !blockState.is(Blocks.DEAD_BUSH) && !blockState.is(Blocks.HANGING_ROOTS) && !blockState.is(Blocks.VINE) && !blockState.is(Blocks.TRIPWIRE) && !blockState.is(BlockTags.WOOL) ? super.mineBlock(itemStack, pLevel, blockState, blockPos, livingEntity) : true;
     }
 
-    public boolean isCorrectToolForDrops(BlockState pBlock) {
-        return pBlock.is(Blocks.COBWEB) || pBlock.is(Blocks.REDSTONE_WIRE) || pBlock.is(Blocks.TRIPWIRE);
+    public boolean isCorrectToolForDrops(BlockState blockState) {
+        return blockState.is(Blocks.COBWEB) || blockState.is(Blocks.REDSTONE_WIRE) || blockState.is(Blocks.TRIPWIRE);
     }
 
-    public float getDestroySpeed(ItemStack pStack, BlockState pState) {
-        if (!pState.is(Blocks.COBWEB) && !pState.is(BlockTags.LEAVES)) {
-            if (pState.is(BlockTags.WOOL)) {
+    public float getDestroySpeed(@NotNull ItemStack itemStack, BlockState blockState) {
+        if (!blockState.is(Blocks.COBWEB) && !blockState.is(BlockTags.LEAVES)) {
+            if (blockState.is(BlockTags.WOOL)) {
                 return 5.0F;
             } else {
-                return !pState.is(Blocks.VINE) && !pState.is(Blocks.GLOW_LICHEN) ? super.getDestroySpeed(pStack, pState) : 2.0F;
+                return !blockState.is(Blocks.VINE) && !blockState.is(Blocks.GLOW_LICHEN) ? super.getDestroySpeed(itemStack, blockState) : 2.0F;
             }
         } else {
             return 15.0F;
         }
     }
 
+    @SuppressWarnings("deprecation")
+    @NotNull
     @Override
-    public net.minecraft.world.InteractionResult interactLivingEntity(ItemStack stack, net.minecraft.world.entity.player.Player playerIn, LivingEntity entity, net.minecraft.world.InteractionHand hand) {
-        if (entity instanceof net.minecraftforge.common.IForgeShearable target) {
-            if (entity.level.isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
-            BlockPos pos = new BlockPos(entity.getX(), entity.getY(), entity.getZ());
-            if (target.isShearable(stack, entity.level, pos)) {
-                java.util.List<ItemStack> drops = target.onSheared(playerIn, stack, entity.level, pos,
-                        net.minecraft.world.item.enchantment.EnchantmentHelper.getItemEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantments.BLOCK_FORTUNE, stack));
+    public net.minecraft.world.InteractionResult interactLivingEntity(@NotNull ItemStack itemStack, net.minecraft.world.entity.player.@NotNull Player playerIn, @NotNull LivingEntity livingEntity, net.minecraft.world.@NotNull InteractionHand interactionHand) {
+        if (livingEntity instanceof net.minecraftforge.common.IForgeShearable target) {
+            if (livingEntity.level.isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
+            BlockPos pos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+            if (target.isShearable(itemStack, livingEntity.level, pos)) {
+                java.util.List<ItemStack> drops = target.onSheared(playerIn, itemStack, livingEntity.level, pos,
+                        net.minecraft.world.item.enchantment.EnchantmentHelper.getItemEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantments.BLOCK_FORTUNE, itemStack));
                 java.util.Random rand = new java.util.Random();
                 drops.forEach(d -> {
-                    net.minecraft.world.entity.item.ItemEntity ent = entity.spawnAtLocation(d, 1.0F);
-                    ent.setDeltaMovement(ent.getDeltaMovement().add((double)((rand.nextFloat() - rand.nextFloat()) * 0.1F), (double)(rand.nextFloat() * 0.05F), (double)((rand.nextFloat() - rand.nextFloat()) * 0.1F)));
+                    net.minecraft.world.entity.item.ItemEntity ent = livingEntity.spawnAtLocation(d, 1.0F);
+                    ent.setDeltaMovement(ent.getDeltaMovement().add((double) ((rand.nextFloat() - rand.nextFloat()) * 0.1F), (double) (rand.nextFloat() * 0.05F), (double) ((rand.nextFloat() - rand.nextFloat()) * 0.1F)));
                 });
-                stack.hurtAndBreak(1, playerIn, e -> e.broadcastBreakEvent(hand));
+                itemStack.hurtAndBreak(1, playerIn, e -> e.broadcastBreakEvent(interactionHand));
             }
             return net.minecraft.world.InteractionResult.SUCCESS;
         }
@@ -98,6 +100,7 @@ public class ArcaneShearsItem extends TieredItem {
         return net.minecraftforge.common.ToolActions.DEFAULT_SHEARS_ACTIONS.contains(toolAction);
     }
 
+    @NotNull
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
@@ -108,7 +111,7 @@ public class ArcaneShearsItem extends TieredItem {
                 Player player = pContext.getPlayer();
                 ItemStack itemstack = pContext.getItemInHand();
                 if (player instanceof ServerPlayer) {
-                    CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);
+                    CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, blockpos, itemstack);
                 }
 
                 level.playSound(player, blockpos, SoundEvents.GROWING_PLANT_CROP, SoundSource.BLOCKS, 1.0F, 1.0F);

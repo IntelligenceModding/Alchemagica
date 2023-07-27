@@ -2,8 +2,6 @@ package de.artemis.alchemagica.common.world;
 
 import com.google.common.base.Suppliers;
 import de.artemis.alchemagica.common.registration.ModBlocks;
-import net.minecraft.core.Holder;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;

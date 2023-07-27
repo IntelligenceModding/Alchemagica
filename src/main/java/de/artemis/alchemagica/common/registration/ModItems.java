@@ -1,6 +1,7 @@
 package de.artemis.alchemagica.common.registration;
 
 import de.artemis.alchemagica.Alchemagica;
+import de.artemis.alchemagica.common.items.ArcaneHoeItem;
 import de.artemis.alchemagica.common.items.ArcanePickaxeItem;
 import de.artemis.alchemagica.common.items.ArcaneShearsItem;
 import net.minecraft.world.item.Item;
@@ -13,6 +14,9 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.ARCANE_BLOSSOM.get(), (new Item.Properties()).tab(Alchemagica.INVENTORY_TAB)));
 
     public static final RegistryObject<Item> ARCANE_BLOSSOM_PETAL = Registration.ITEMS.register("arcane_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> CRUSHED_ARCANE_BLOSSOM_PETAL = Registration.ITEMS.register("crushed_arcane_blossom_petal",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
     public static final RegistryObject<Item> ARCANE_CRYSTAL_SHARD = Registration.ITEMS.register("arcane_crystal_shard",
@@ -32,6 +36,9 @@ public class ModItems {
 
     public static final RegistryObject<ArcanePickaxeItem> ARCANE_PICKAXE = Registration.ITEMS.register("arcane_pickaxe",
             () -> new ArcanePickaxeItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<ArcaneHoeItem> ARCANE_HOE = Registration.ITEMS.register("arcane_hoe",
+            () -> new ArcaneHoeItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB)));
 
     public static void register() {
     }

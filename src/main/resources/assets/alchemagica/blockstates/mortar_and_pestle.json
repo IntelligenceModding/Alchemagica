@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "alchemagica:block/mortar_and_pestle"
+    },
+    "facing=south": {
+      "model": "alchemagica:block/mortar_and_pestle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alchemagica:block/mortar_and_pestle",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "alchemagica:block/mortar_and_pestle",
+      "y": 90
+    }
+  }
+}

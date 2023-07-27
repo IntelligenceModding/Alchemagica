@@ -14,4 +14,5 @@ public class ClientEvents {
     public static void onRegisterKeyMappingEvent(RegisterKeyMappingsEvent event) {
         event.register(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND);
     }
+
 }

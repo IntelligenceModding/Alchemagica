@@ -6,11 +6,9 @@ import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.Registration;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -40,6 +38,8 @@ public class BlockLootTables extends BlockLoot {
         dropWhenSilkTouch(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get());
         dropWhenSilkTouch(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get());
         dropWhenSilkTouch(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get());
+        dropOther(ModBlocks.ARCANE_SOIL.get(), Blocks.DIRT);
+        dropSelf(ModBlocks.MORTAR_AND_PESTLE.get());
     }
 
     protected static LootTable.Builder createBlossomCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {

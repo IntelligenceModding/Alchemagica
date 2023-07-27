@@ -1,6 +1,8 @@
 package de.artemis.alchemagica.common.blocks;
 
+import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModItems;
+import de.artemis.alchemagica.common.registration.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -52,6 +54,11 @@ public class ArcaneBlossomCropBlock extends CropBlock {
     }
 
     @Override
+    protected boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+        return blockState.is(ModTags.Block.MAY_FARM_ARCANE_CROPS_ON);
+    }
+
+    @Override
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         interactionHand = InteractionHand.MAIN_HAND;
         ItemStack itemStackInHand = player.getItemInHand(interactionHand);
@@ -74,6 +81,14 @@ public class ArcaneBlossomCropBlock extends CropBlock {
 
             if (!player.isCreative() && !level.isClientSide) {
                 itemStackInHand.hurt(1, RandomSource.create(), null);
+
+                if (level.getBlockState(blockPos.below()).getBlock().equals(ModBlocks.ARCANE_SOIL.get()) && Math.random() < 0.75) {
+                    if (!player.getInventory().add(new ItemStack(petal.get()))) {
+                        ItemEntity itemEntity = new ItemEntity(level, blockPos.getX() + 0.5F, blockPos.getY() + 0.5F, blockPos.getZ() + 0.5F, new ItemStack(petal.get()));
+                        itemEntity.setDefaultPickUpDelay();
+                        level.addFreshEntity(itemEntity);
+                    }
+                }
 
                 if (!player.getInventory().add(new ItemStack(petal.get()))) {
                     ItemEntity itemEntity = new ItemEntity(level, blockPos.getX() + 0.5F, blockPos.getY() + 0.5F, blockPos.getZ() + 0.5F, new ItemStack(petal.get()));

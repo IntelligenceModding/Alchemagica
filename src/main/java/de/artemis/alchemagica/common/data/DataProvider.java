@@ -26,18 +26,22 @@ public class DataProvider {
         generator.addProvider(true, new TagsProvider.BlockTagsProvider(generator, existingFileHelper));
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRegistryName(Item item) {
         return item.builtInRegistryHolder().key().location().toString();
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRegistryNamePath(Item item) {
         return item.builtInRegistryHolder().key().location().getPath().toString();
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRegistryName(Block block) {
         return block.builtInRegistryHolder().key().location().toString();
     }
 
+    @SuppressWarnings("deprecation")
     public static String getRegistryNamePath(Block block) {
         return block.builtInRegistryHolder().key().location().getPath().toString();
     }

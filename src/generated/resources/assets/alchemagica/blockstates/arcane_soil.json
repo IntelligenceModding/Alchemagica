@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=1": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=2": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=3": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=4": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=5": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=6": {
+      "model": "alchemagica:block/arcane_soil"
+    },
+    "moisture=7": {
+      "model": "alchemagica:block/arcane_soil_moist"
+    }
+  }
+}

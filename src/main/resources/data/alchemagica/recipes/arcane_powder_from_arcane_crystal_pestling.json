@@ -1,0 +1,11 @@
+{
+  "type": "alchemagica:pestling",
+  "ingredients": [
+    {
+      "item": "alchemagica:arcane_crystal_shard"
+    }
+  ],
+  "output": {
+    "item": "alchemagica:arcane_crystal_powder"
+  }
+}

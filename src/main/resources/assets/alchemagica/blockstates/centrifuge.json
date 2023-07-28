@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "alchemagica:block/centrifuge"
+    },
+    "facing=south": {
+      "model": "alchemagica:block/centrifuge",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alchemagica:block/centrifuge",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "alchemagica:block/centrifuge",
+      "y": 90
+    }
+  }
+}

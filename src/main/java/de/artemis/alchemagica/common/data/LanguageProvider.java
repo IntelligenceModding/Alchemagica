@@ -45,5 +45,6 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get(), "Small Arcane Crystal Bud");
         add(ModBlocks.ARCANE_SOIL.get(), "Arcane Soil");
         add(ModBlocks.MORTAR_AND_PESTLE.get(), "Mortar And Pestle");
+        add(ModBlocks.CENTRIFUGE.get(), "Centrifuge");
     }
 }

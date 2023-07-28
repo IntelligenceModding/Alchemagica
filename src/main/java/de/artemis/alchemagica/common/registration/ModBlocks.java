@@ -37,7 +37,10 @@ public class ModBlocks {
             () -> new ArcaneSoilBlock(BlockBehaviour.Properties.of(Material.DIRT).randomTicks().strength(0.6F).sound(SoundType.GRAVEL).isViewBlocking(ModBlocks::always).isSuffocating(ModBlocks::always)));
 
     public static final RegistryObject<MortarAndPestleBlock> MORTAR_AND_PESTLE = register("mortar_and_pestle",
-            () -> new MortarAndPestleBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1.0F).sound(SoundType.STONE).noOcclusion()));
+            () -> new MortarAndPestleBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1.0F).sound(SoundType.WOOD).noOcclusion()));
+
+    public static final RegistryObject<CentrifugeBlock> CENTRIFUGE = register("centrifuge",
+            () -> new CentrifugeBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1.0F).sound(SoundType.WOOD).noOcclusion()));
 
     public static final RegistryObject<ArcaneClusterBlock> ARCANE_CRYSTAL_CLUSTER = register("arcane_crystal_cluster",
             () -> new ArcaneClusterBlock(7, 3, BlockBehaviour.Properties.of(Material.AMETHYST).noOcclusion().randomTicks().strength(1.5F).sound(SoundType.AMETHYST_CLUSTER).requiresCorrectToolForDrops().lightLevel((p_152632_) -> 5)));

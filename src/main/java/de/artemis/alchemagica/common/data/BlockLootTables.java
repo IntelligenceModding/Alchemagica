@@ -40,6 +40,7 @@ public class BlockLootTables extends BlockLoot {
         dropWhenSilkTouch(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get());
         dropOther(ModBlocks.ARCANE_SOIL.get(), Blocks.DIRT);
         dropSelf(ModBlocks.MORTAR_AND_PESTLE.get());
+        dropSelf(ModBlocks.CENTRIFUGE.get());
     }
 
     protected static LootTable.Builder createBlossomCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {

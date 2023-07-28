@@ -40,6 +40,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleBlock(ModBlocks.BUDDING_ARCANE_CRYSTAL.get());
         simpleBlock(ModBlocks.ARCANE_SOIL.get());
         simpleBlock(ModBlocks.MORTAR_AND_PESTLE.get());
+        simpleBlock(ModBlocks.CENTRIFUGE.get());
     }
 
     private void simpleItem(Item item) {

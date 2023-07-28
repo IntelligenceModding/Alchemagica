@@ -1,4 +1,4 @@
-// 1.19.2	2023-07-25T11:48:33.2703904	Item Models: alchemagica
+// 1.19.2	2023-07-28T02:12:04.2649894	Item Models: alchemagica
 727718907fd6be835a58e0985f426afb8586f353 assets/alchemagica/models/item/ancient_petal_cluster.json
 f1a813be4e14d3b6489814ccd7d5295934e64d37 assets/alchemagica/models/item/ancient_petal_fragment.json
 308a75bceabe8bf861b72261c891588d015677c9 assets/alchemagica/models/item/arcane_blossom_petal.json
@@ -12,6 +12,7 @@ da2976c8b5e29022815f3c9d61a5edf65d48a629 assets/alchemagica/models/item/arcane_c
 83112301b9ffa7057c672feaf88676f2c675fa7b assets/alchemagica/models/item/arcane_shears.json
 70cbc46ed1f1fd823fafca4ffb2da0e85a2a7c7f assets/alchemagica/models/item/arcane_soil.json
 7694537473b1581674495be8c9ce158f504a97ec assets/alchemagica/models/item/budding_arcane_crystal.json
+b0a21c29c4cb92f852a7560b86487b0a240fa950 assets/alchemagica/models/item/centrifuge.json
 fa870e3b586f16dd7afda883b6b9d1610cc42ea5 assets/alchemagica/models/item/crushed_arcane_blossom_petal.json
 df4823e7f6394a695284e732d9e99593029c4f01 assets/alchemagica/models/item/large_arcane_crystal_bud.json
 d4a2cd73da9e737ac0fab5d5fd44ab489f808466 assets/alchemagica/models/item/marvelous_ancient_petal_fragment.json

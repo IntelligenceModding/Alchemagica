@@ -23,10 +23,12 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add("tooltip.alchemagica.arcane_hoe", "Use this Arcane Hoe to turn dirt and other similar blocks into Arcane Soil, further enhancing growth and irigation");
 
         add("displayname.alchemagica.mortar_and_pestle_block_entity", "Mortar And Pestle");
+        add("displayname.alchemagica.centrifuge_block_entity", "Centrifuge");
 
         add(ModItems.ARCANE_BLOSSOM_SEED.get(), "Arcane Blossom Seed");
         add(ModItems.ARCANE_BLOSSOM_PETAL.get(), "Arcane Blossom Petal");
         add(ModItems.CRUSHED_ARCANE_BLOSSOM_PETAL.get(), "Crushed Arcane Blossom Petal");
+        add(ModItems.ARCANE_BLOSSOM_EXTRACT.get(), "Arcane Blossom Extract");
         add(ModItems.ARCANE_CRYSTAL_SHARD.get(), "Arcane Crystal Shard");
         add(ModItems.ARCANE_SHEARS.get(), "Arcane Shears");
         add(ModItems.ARCANE_CRYSTAL_POWDER.get(), "Arcane Crystal Powder");

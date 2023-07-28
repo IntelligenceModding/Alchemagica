@@ -1,6 +1,7 @@
 package de.artemis.alchemagica.common.events;
 
 import de.artemis.alchemagica.Alchemagica;
+import de.artemis.alchemagica.common.containers.screens.CentrifugeScreen;
 import de.artemis.alchemagica.common.containers.screens.MortarAndPestleScreen;
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModMenuTypes;
@@ -17,5 +18,6 @@ public class ModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         MenuScreens.register(ModMenuTypes.MORTAR_AND_PESTLE_MENU.get(), MortarAndPestleScreen::new);
+        MenuScreens.register(ModMenuTypes.CENTRIFUGE_MENU.get(), CentrifugeScreen::new);
     }
 }

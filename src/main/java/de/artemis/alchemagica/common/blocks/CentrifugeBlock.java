@@ -1,7 +1,6 @@
 package de.artemis.alchemagica.common.blocks;
 
 import de.artemis.alchemagica.common.blockentities.CentrifugeBlockEntity;
-import de.artemis.alchemagica.common.blockentities.MortarAndPestleBlockEntity;
 import de.artemis.alchemagica.common.util.VoxelShapeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -116,6 +115,6 @@ public class CentrifugeBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState blockState, @NotNull BlockEntityType<T> blockEntityType) {
-        return level.isClientSide ? null : (a, b, c, blockEntity) -> ((MortarAndPestleBlockEntity) blockEntity).tick();
+        return level.isClientSide ? null : (a, b, c, blockEntity) -> ((CentrifugeBlockEntity) blockEntity).tick();
     }
 }

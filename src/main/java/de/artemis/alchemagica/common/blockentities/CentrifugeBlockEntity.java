@@ -1,7 +1,7 @@
 package de.artemis.alchemagica.common.blockentities;
 
-import de.artemis.alchemagica.common.containers.menus.MortarAndPestleMenu;
-import de.artemis.alchemagica.common.recipe.MortarAndPestleRecipe;
+import de.artemis.alchemagica.common.containers.menus.CentrifugeMenu;
+import de.artemis.alchemagica.common.recipe.CentrifugeRecipe;
 import de.artemis.alchemagica.common.registration.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -35,16 +35,16 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
     public NonNullList<ItemStack> items;
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 40;
+    private int maxProgress = 100;
 
     public CentrifugeBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.MORTAR_AND_PESTLE.get(), blockPos, blockState);
+        super(ModBlockEntities.CENTRIFUGE.get(), blockPos, blockState);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
                 return switch (index) {
                     case 0 -> CentrifugeBlockEntity.this.progress;
-                    case 1 -> CentrifugeBlockEntity.this.maxProgress;
+                    case 1, 2, 3 -> CentrifugeBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -53,13 +53,13 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> CentrifugeBlockEntity.this.progress = value;
-                    case 1 -> CentrifugeBlockEntity.this.maxProgress = value;
+                    case 1, 2, 3 -> CentrifugeBlockEntity.this.maxProgress = value;
                 }
             }
 
             @Override
             public int getCount() {
-                return 2;
+                return 4;
             }
         };
 
@@ -68,13 +68,13 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
 
     @Override
     protected @NotNull Component getDefaultName() {
-        return Component.translatable("displayname.alchemagica.mortar_and_pestle_block_entity");
+        return Component.translatable("displayname.alchemagica.centrifuge_block_entity");
     }
 
     @NotNull
     @Override
     protected AbstractContainerMenu createMenu(int containerId, @NotNull Inventory inventory) {
-        return new MortarAndPestleMenu(containerId, inventory, this, data);
+        return new CentrifugeMenu(containerId, inventory, this, data);
     }
 
     @Override
@@ -123,15 +123,18 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
             inventory.setItem(i, getItem(i));
         }
 
-        Optional<MortarAndPestleRecipe> recipe = level.getRecipeManager().getRecipeFor(MortarAndPestleRecipe.Type.INSTANCE, inventory, level);
+        Optional<CentrifugeRecipe> recipe = level.getRecipeManager().getRecipeFor(CentrifugeRecipe.Type.INSTANCE, inventory, level);
 
         if (hasRecipe()) {
             removeItem(0, 1);
             setItem(1, new ItemStack(recipe.get().getResultItem().getItem(), getItem(1).getCount() + 1));
+            setItem(2, new ItemStack(recipe.get().getResultItem().getItem(), getItem(2).getCount() + 1));
+            setItem(3, new ItemStack(recipe.get().getResultItem().getItem(), getItem(3).getCount() + 1));
 
             resetProgress();
         }
     }
+
 
     private boolean hasRecipe() {
         Level level = getLevel();
@@ -140,21 +143,21 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
             inventory.setItem(i, getItem(i));
         }
 
-        Optional<MortarAndPestleRecipe> recipe = level.getRecipeManager().getRecipeFor(MortarAndPestleRecipe.Type.INSTANCE, inventory, level);
+        Optional<CentrifugeRecipe> recipe = level.getRecipeManager().getRecipeFor(CentrifugeRecipe.Type.INSTANCE, inventory, level);
         return recipe.isPresent() && hasOutputCountSpace(inventory) && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
     }
 
     private boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(1).getItem() == itemStack.getItem() || inventory.getItem(1).isEmpty();
+        return inventory.getItem(1).getItem() == itemStack.getItem() || inventory.getItem(1).isEmpty() && inventory.getItem(2).getItem() == itemStack.getItem() || inventory.getItem(2).isEmpty() && inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty();
     }
 
     private boolean hasOutputCountSpace(SimpleContainer inventory) {
-        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
+        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount() && inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount() && inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
     }
 
     @Override
     public int @NotNull [] getSlotsForFace(@NotNull Direction side) {
-        if (side == Direction.DOWN) return new int[]{1};
+        if (side == Direction.DOWN) return new int[]{1, 2, 3};
         return new int[]{0};
     }
 
@@ -170,7 +173,7 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
 
     @Override
     public int getContainerSize() {
-        return 2;
+        return 4;
     }
 
     @Override

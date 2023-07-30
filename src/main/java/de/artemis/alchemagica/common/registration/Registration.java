@@ -4,6 +4,7 @@ import de.artemis.alchemagica.Alchemagica;
 import de.artemis.alchemagica.common.world.feature.ModConfiguredFeatures;
 import de.artemis.alchemagica.common.world.feature.ModPlacedFeatures;
 import net.minecraft.core.Registry;
+import net.minecraft.core.particles.ParticleType;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -26,6 +27,7 @@ public class Registration {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, Alchemagica.MOD_ID);
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Alchemagica.MOD_ID);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, Alchemagica.MOD_ID);
+    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, Alchemagica.MOD_ID);
 
     public static void register() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -38,6 +40,7 @@ public class Registration {
         MENUS.register(eventBus);
         RECIPE_SERIALIZERS.register(eventBus);
         RECIPE_TYPES.register(eventBus);
+        PARTICLE_TYPES.register(eventBus);
 
         ModBlocks.register();
         ModItems.register();
@@ -46,5 +49,6 @@ public class Registration {
         ModBlockEntities.register();
         ModMenuTypes.register();
         ModRecipes.register();
+        ModParticles.register();
     }
 }

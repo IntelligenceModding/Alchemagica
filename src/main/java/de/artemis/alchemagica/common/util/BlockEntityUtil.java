@@ -6,7 +6,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class BlockEntityUtils {
+public class BlockEntityUtil {
 
     public static void dropContents(ItemStackHandler itemHandler, Level level, BlockPos worldPosition) {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());

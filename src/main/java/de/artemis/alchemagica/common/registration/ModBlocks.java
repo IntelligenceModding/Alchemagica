@@ -57,8 +57,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> ARCANE_PLANKS = register("arcane_planks",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
-    public static final RegistryObject<SaplingBlock> ARCANE_SAPLING = register("arcane_sapling",
-            () -> new SaplingBlock(new ArcaneTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final RegistryObject<ArcaneSaplingBlock> ARCANE_SAPLING = register("arcane_sapling",
+            () -> new ArcaneSaplingBlock(new ArcaneTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
 
     public static final RegistryObject<RotatedPillarBlock> ARCANE_LOG = register("arcane_log",
             () -> arcaneLogBlock(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));

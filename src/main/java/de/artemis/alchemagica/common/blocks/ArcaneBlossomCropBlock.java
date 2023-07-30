@@ -3,7 +3,9 @@ package de.artemis.alchemagica.common.blocks;
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.ModTags;
+import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -54,10 +56,11 @@ public class ArcaneBlossomCropBlock extends CropBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+    protected boolean mayPlaceOn(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos) {
         return blockState.is(ModTags.Block.ARCANE_CROPS_GROW_ON);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         interactionHand = InteractionHand.MAIN_HAND;
@@ -65,12 +68,17 @@ public class ArcaneBlossomCropBlock extends CropBlock {
 
         // Using Arcane Powder, to speed up growth
         if (itemStackInHand.is(ModItems.ARCANE_CRYSTAL_POWDER.get()) && !blockState.getValue(AGE).equals(getMaxAge())) {
-            level.setBlock(blockPos, blockState.setValue(AGE, blockState.getValue(AGE) + 1), 3);
             level.playSound(player, blockPos, SoundEvents.AMETHYST_BLOCK_STEP, SoundSource.BLOCKS, 1.0F, 1.0F);
+            ParticleUtil.addArcaneGrowthParticles(level, blockPos, 1);
 
             if (!player.isCreative() && !level.isClientSide) {
                 itemStackInHand.shrink(1);
             }
+
+            if (level.random.nextFloat() < 0.45D) {
+                level.setBlock(blockPos, blockState.setValue(AGE, blockState.getValue(AGE) + 1), 3);
+            }
+
             return InteractionResult.SUCCESS;
         }
 
@@ -112,6 +120,11 @@ public class ArcaneBlossomCropBlock extends CropBlock {
     @Override
     public ItemLike getBaseSeedId() {
         return seed.get();
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(@NotNull BlockGetter level, @NotNull BlockPos blockPos, @NotNull BlockState blockState, boolean isClient) {
+        return false;
     }
 
     @Override

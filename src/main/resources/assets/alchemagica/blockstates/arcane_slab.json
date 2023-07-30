@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "alchemagica:block/arcane_slab"
+    },
+    "type=double": {
+      "model": "alchemagica:block/arcane_planks"
+    },
+    "type=top": {
+      "model": "alchemagica:block/arcane_slab_top"
+    }
+  }
+}

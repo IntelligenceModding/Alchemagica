@@ -2,6 +2,7 @@ package de.artemis.alchemagica.common.registration;
 
 import de.artemis.alchemagica.Alchemagica;
 import de.artemis.alchemagica.common.blocks.*;
+import de.artemis.alchemagica.common.world.feature.tree.ArcaneTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
@@ -55,13 +56,11 @@ public class ModBlocks {
     public static final RegistryObject<ArcaneClusterBlock> SMALL_ARCANE_CRYSTAL_BUD = register("small_arcane_crystal_bud",
             () -> new ArcaneClusterBlock(3, 3, BlockBehaviour.Properties.copy(ARCANE_CRYSTAL_CLUSTER.get()).sound(SoundType.SMALL_AMETHYST_BUD).lightLevel((p_152632_) -> 1)));
 
-
-
     public static final RegistryObject<Block> ARCANE_PLANKS = register("arcane_planks",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
     public static final RegistryObject<SaplingBlock> ARCANE_SAPLING = register("arcane_sapling",
-            () -> new SaplingBlock(new SpruceTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+            () -> new SaplingBlock(new ArcaneTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
 
     public static final RegistryObject<RotatedPillarBlock> ARCANE_LOG = register("arcane_log",
             () -> log(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
@@ -78,11 +77,11 @@ public class ModBlocks {
     public static final RegistryObject<LeavesBlock> ARCANE_LEAVES = register("arcane_leaves",
             () -> leaves(SoundType.GRASS));
 
-    public static final RegistryObject<StandingSignBlock> ARCANE_SIGN = register("arcane_sign",
-            () -> new StandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD, ARCANE_LOG.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD), WoodType.SPRUCE));
+    public static final RegistryObject<ModStandingSignBlock> ARCANE_SIGN = registerWithoutBlockItem("arcane_sign",
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.of(Material.WOOD, ARCANE_LOG.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD), ModWoodTypes.ARCANE));
 
-    public static final RegistryObject<WallSignBlock> ARCANE_WALL_SIGN = register("arcane_wall_sign",
-            () -> new WallSignBlock(BlockBehaviour.Properties.of(Material.WOOD, ARCANE_LOG.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(ARCANE_SIGN.get()), WoodType.SPRUCE));
+    public static final RegistryObject<ModWallSignBlock> ARCANE_WALL_SIGN = registerWithoutBlockItem("arcane_wall_sign",
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.of(Material.WOOD, ARCANE_LOG.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD).dropsLike(ARCANE_SIGN.get()), ModWoodTypes.ARCANE));
 
     public static final RegistryObject<PressurePlateBlock> ARCANE_PRESSURE_PLATE = register("arcane_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, ARCANE_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F).sound(SoundType.WOOD)));
@@ -112,11 +111,16 @@ public class ModBlocks {
             () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, ARCANE_PLANKS.get().defaultMaterialColor()).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
 
 
-
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = Registration.BLOCKS.register(name, block);
         Registration.ITEMS.register(name, () -> new BlockItem(toReturn.get(),
                 new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerWithoutBlockItem(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = Registration.BLOCKS.register(name, block);
 
         return toReturn;
     }
@@ -131,20 +135,21 @@ public class ModBlocks {
         return false;
     }
 
+    private static Boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
+        return false;
+    }
+
     private static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
         return true;
     }
 
-    private static Boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
-        return (boolean)false;
-    }
 
     private static LeavesBlock leaves(SoundType soundType) {
         return new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES).strength(0.2F).randomTicks().sound(soundType).noOcclusion().isValidSpawn(ModBlocks::ocelotOrParrot).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never));
     }
 
     private static Boolean ocelotOrParrot(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
-        return (boolean)(entityType == EntityType.OCELOT || entityType == EntityType.PARROT);
+        return (boolean) (entityType == EntityType.OCELOT || entityType == EntityType.PARROT);
     }
 
     public static void register() {

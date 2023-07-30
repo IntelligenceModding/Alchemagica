@@ -28,7 +28,7 @@ public class Alchemagica {
         @Override
         public void fillItemList(@NotNull NonNullList<ItemStack> items) {
             ArrayList<Item> blockList = new ArrayList<>();
-            Collections.addAll(blockList, ModItems.ARCANE_PICKAXE.get(), ModItems.ARCANE_SHEARS.get(), ModItems.ARCANE_HOE.get(), ModBlocks.MORTAR_AND_PESTLE.get().asItem(), ModBlocks.CENTRIFUGE.get().asItem(), ModBlocks.ARCANE_SOIL.get().asItem(), ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.CRUSHED_ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_BLOSSOM_EXTRACT.get(), ModBlocks.ARCANE_CRYSTAL_BLOCK.get().asItem(), ModBlocks.BUDDING_ARCANE_CRYSTAL.get().asItem(), ModBlocks.ARCANE_CRYSTAL_CLUSTER.get().asItem(), ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get().asItem(), ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get().asItem(), ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get().asItem(), ModItems.ARCANE_CRYSTAL_SHARD.get(), ModItems.ARCANE_CRYSTAL_POWDER.get(), ModBlocks.ANCIENT_PETAL_CLUSTER.get().asItem(), ModItems.ANCIENT_PETAL_FRAGMENT.get(), ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
+            Collections.addAll(blockList, ModItems.ARCANE_PICKAXE.get(), ModItems.ARCANE_SHEARS.get(), ModItems.ARCANE_HOE.get(), ModBlocks.MORTAR_AND_PESTLE.get().asItem(), ModBlocks.CENTRIFUGE.get().asItem(), ModBlocks.ARCANE_SOIL.get().asItem(), ModItems.ARCANE_BLOSSOM_SEED.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.CRUSHED_ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_BLOSSOM_EXTRACT.get(), ModBlocks.ARCANE_CRYSTAL_BLOCK.get().asItem(), ModBlocks.BUDDING_ARCANE_CRYSTAL.get().asItem(), ModBlocks.ARCANE_CRYSTAL_CLUSTER.get().asItem(), ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get().asItem(), ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get().asItem(), ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get().asItem(), ModItems.ARCANE_CRYSTAL_SHARD.get(), ModItems.ARCANE_CRYSTAL_POWDER.get(), ModBlocks.ANCIENT_PETAL_CLUSTER.get().asItem(), ModItems.ANCIENT_PETAL_FRAGMENT.get(), ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get(), ModBlocks.ARCANE_LOG.get().asItem(), ModBlocks.STRIPPED_ARCANE_LOG.get().asItem(), ModBlocks.ARCANE_WOOD.get().asItem(), ModBlocks.STRIPPED_ARCANE_WOOD.get().asItem(), ModBlocks.ARCANE_PLANKS.get().asItem(), ModBlocks.ARCANE_STAIRS.get().asItem(), ModBlocks.ARCANE_SLAB.get().asItem(), ModBlocks.ARCANE_DOOR.get().asItem(), ModBlocks.ARCANE_TRAPDOOR.get().asItem(), ModBlocks.ARCANE_FENCE.get().asItem(), ModBlocks.ARCANE_FENCE_GATE.get().asItem(), ModItems.ARCANE_SIGN.get(), ModBlocks.ARCANE_PRESSURE_PLATE.get().asItem(), ModBlocks.ARCANE_BUTTON.get().asItem(), ModBlocks.ARCANE_LEAVES.get().asItem(), ModBlocks.ARCANE_SAPLING.get().asItem());
 
             int run = 0;
             for (Item x : blockList) {
@@ -39,8 +39,6 @@ public class Alchemagica {
     };
 
     public Alchemagica() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         Registration.register();
     }
 

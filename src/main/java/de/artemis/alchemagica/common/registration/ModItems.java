@@ -4,8 +4,11 @@ import de.artemis.alchemagica.Alchemagica;
 import de.artemis.alchemagica.common.items.ArcaneHoeItem;
 import de.artemis.alchemagica.common.items.ArcanePickaxeItem;
 import de.artemis.alchemagica.common.items.ArcaneShearsItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.SignItem;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
@@ -42,6 +45,9 @@ public class ModItems {
 
     public static final RegistryObject<ArcaneHoeItem> ARCANE_HOE = Registration.ITEMS.register("arcane_hoe",
             () -> new ArcaneHoeItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<SignItem> ARCANE_SIGN = Registration.ITEMS.register("arcane_sign",
+            () -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_DECORATIONS), ModBlocks.ARCANE_SIGN.get(), ModBlocks.ARCANE_WALL_SIGN.get()));
 
     public static void register() {
     }

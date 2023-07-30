@@ -36,6 +36,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get(), "Marvelous Ancient Petal Fragment");
         add(ModItems.ARCANE_PICKAXE.get(), "Arcane Pickaxe");
         add(ModItems.ARCANE_HOE.get(), "Arcane Hoe");
+        add(ModItems.ARCANE_SIGN.get(), "Arcane Sign");
 
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), "Ancient Petal Cluster");
@@ -48,5 +49,20 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModBlocks.ARCANE_SOIL.get(), "Arcane Soil");
         add(ModBlocks.MORTAR_AND_PESTLE.get(), "Mortar And Pestle");
         add(ModBlocks.CENTRIFUGE.get(), "Centrifuge");
+        add(ModBlocks.ARCANE_PLANKS.get(), "Arcane Planks");
+        add(ModBlocks.ARCANE_SAPLING.get(), "Arcane Sapling");
+        add(ModBlocks.ARCANE_LOG.get(), "Arcane Log");
+        add(ModBlocks.STRIPPED_ARCANE_LOG.get(), "Stripped Arcane Log");
+        add(ModBlocks.ARCANE_WOOD.get(), "Arcane Wood");
+        add(ModBlocks.STRIPPED_ARCANE_WOOD.get(), "Stripped Arcane Wood");
+        add(ModBlocks.ARCANE_LEAVES.get(), "Arcane Leaves");
+        add(ModBlocks.ARCANE_PRESSURE_PLATE.get(), "Arcane Pressure Plate");
+        add(ModBlocks.ARCANE_TRAPDOOR.get(), "Arcane Trapdoor");
+        add(ModBlocks.ARCANE_STAIRS.get(), "Arcane Stairs");
+        add(ModBlocks.ARCANE_BUTTON.get(), "Arcane Button");
+        add(ModBlocks.ARCANE_SLAB.get(), "Arcane Slab");
+        add(ModBlocks.ARCANE_FENCE_GATE.get(), "Arcane Fence Gate");
+        add(ModBlocks.ARCANE_FENCE.get(), "Arcane Fence");
+        add(ModBlocks.ARCANE_DOOR.get(), "Arcane Door");
     }
 }

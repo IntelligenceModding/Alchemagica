@@ -11,6 +11,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,7 +30,25 @@ public class TagsProvider {
         @Override
         protected void addTags() {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.ANCIENT_PETAL_CLUSTER.get()).add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get(), ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get(), ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get(), ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get());
-            tag(ModTags.Block.MAY_FARM_ARCANE_CROPS_ON).add(ModBlocks.ARCANE_SOIL.get()).add(Blocks.FARMLAND);
+            tag(BlockTags.PLANKS).add(ModBlocks.ARCANE_PLANKS.get());
+            tag(BlockTags.WOODEN_BUTTONS).add(ModBlocks.ARCANE_BUTTON.get());
+            tag(BlockTags.WOODEN_DOORS).add(ModBlocks.ARCANE_DOOR.get());
+            tag(BlockTags.WOODEN_STAIRS).add(ModBlocks.ARCANE_STAIRS.get());
+            tag(BlockTags.WOODEN_SLABS).add(ModBlocks.ARCANE_SLAB.get());
+            tag(BlockTags.WOODEN_FENCES).add(ModBlocks.ARCANE_FENCE.get());
+            tag(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.ARCANE_PRESSURE_PLATE.get());
+            tag(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.ARCANE_TRAPDOOR.get());
+            tag(BlockTags.SAPLINGS).add(ModBlocks.ARCANE_SAPLING.get());
+            tag(BlockTags.LOGS_THAT_BURN).add(ModBlocks.ARCANE_LOG.get()).add(ModBlocks.STRIPPED_ARCANE_LOG.get()).add(ModBlocks.ARCANE_WOOD.get()).add(ModBlocks.STRIPPED_ARCANE_WOOD.get());
+            tag(BlockTags.LEAVES).add(ModBlocks.ARCANE_LEAVES.get());
+            tag(BlockTags.STANDING_SIGNS).add(ModBlocks.ARCANE_SIGN.get());
+            tag(BlockTags.WALL_SIGNS).add(ModBlocks.ARCANE_WALL_SIGN.get());
+
+            tag(ModTags.Block.ARCANE_CROPS_GROW_ON).add(ModBlocks.ARCANE_SOIL.get()).add(Blocks.FARMLAND);
+
+            tag(Tags.Blocks.FENCE_GATES_WOODEN).add(ModBlocks.ARCANE_FENCE_GATE.get());
+            tag(Tags.Blocks.FENCES_WOODEN).add(ModBlocks.ARCANE_FENCE.get());
+
         }
 
         @NotNull

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "alchemagica:block/arcane_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "alchemagica:block/arcane_log"
+    },
+    "axis=z": {
+      "model": "alchemagica:block/arcane_log_horizontal",
+      "x": 90
+    }
+  }
+}

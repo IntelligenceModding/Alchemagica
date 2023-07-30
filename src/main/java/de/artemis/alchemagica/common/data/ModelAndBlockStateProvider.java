@@ -22,15 +22,16 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         cropBlockMaxStageThree(ModBlocks.ARCANE_BLOSSOM.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_blossom_flower"), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_blossom_base"));
+
         simpleBlock(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         simpleBlock(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         simpleBlock(ModBlocks.BUDDING_ARCANE_CRYSTAL.get());
-        clusterBlock(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_crystal_cluster"));
-        clusterBlock(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/large_arcane_crystal_bud"));
-        clusterBlock(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/medium_arcane_crystal_bud"));
-        clusterBlock(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/small_arcane_crystal_bud"));
-        farmBlock(ModBlocks.ARCANE_SOIL.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_soil"), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_soil_moist"), new ResourceLocation("block/dirt"));
 
+        crossBlock(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_crystal_cluster"));
+        crossBlock(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/large_arcane_crystal_bud"));
+        crossBlock(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/medium_arcane_crystal_bud"));
+        crossBlock(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/small_arcane_crystal_bud"));
+        farmBlock(ModBlocks.ARCANE_SOIL.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_soil"), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_soil_moist"), new ResourceLocation("block/dirt"));
     }
 
     public void farmBlock(Block block, ResourceLocation texture_top, ResourceLocation texture_top_moist, ResourceLocation texture_side) {
@@ -76,7 +77,7 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
         });
     }
 
-    public void clusterBlock(Block block, ResourceLocation texture) {
+    public void crossBlock(Block block, ResourceLocation texture) {
         ModelFile block_model = models().withExistingParent(DataProvider.getRegistryName(block.asItem()),
                 new ResourceLocation("minecraft:block/cross")).renderType("cutout").texture("cross", texture);
 

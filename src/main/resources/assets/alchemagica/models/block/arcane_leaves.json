@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "alchemagica:block/arcane_leaves"
+  }
+}

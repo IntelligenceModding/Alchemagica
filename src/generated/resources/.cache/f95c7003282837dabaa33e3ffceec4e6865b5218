@@ -1,3 +1,18 @@
-// 1.19.2	2023-07-24T11:57:22.7984388	Block tags
-d258aafe0c75e42a6b5b6cb9cf053fcec83b46a6 data/alchemagica/tags/blocks/may_farm_arcane_crops_on.json
+// 1.19.2	2023-07-29T23:00:36.4906063	Block tags
+d258aafe0c75e42a6b5b6cb9cf053fcec83b46a6 data/alchemagica/tags/blocks/arcane_crops_grow_on.json
+365e7fe8f4804d5fb3c2097051802f8043068615 data/forge/tags/blocks/fences/wooden.json
+67783d2f4b174048aa6be73b6082a16f3299b7b6 data/forge/tags/blocks/fence_gates/wooden.json
+d14fa6bcda4844843330e54f64e346c0f5c9f658 data/minecraft/tags/blocks/leaves.json
+95eb6bab268c441582d3ffd29a7d071095200525 data/minecraft/tags/blocks/logs_that_burn.json
 ab0ca947eec1cf7a2a5a878737a146f3b30b1013 data/minecraft/tags/blocks/mineable/pickaxe.json
+d89b6eb4b811f5d0f651b934070d88bdef83808e data/minecraft/tags/blocks/planks.json
+13f07e18a0d0b25683ad02fc2269de157b8c1872 data/minecraft/tags/blocks/saplings.json
+7ca93813e4dd365c28bdb6c687d8be4c02d84c1f data/minecraft/tags/blocks/standing_signs.json
+b6906aa4b95faf5d0d8b6a65bb7bf099e5080a57 data/minecraft/tags/blocks/wall_signs.json
+d5fe345b2164692b18798870d8dc090605c40b67 data/minecraft/tags/blocks/wooden_buttons.json
+63f10e3876b324c1cb2fb1c088df31c2e119c360 data/minecraft/tags/blocks/wooden_doors.json
+365e7fe8f4804d5fb3c2097051802f8043068615 data/minecraft/tags/blocks/wooden_fences.json
+409a1b0db1925ce4e43ee0beb463e60f0ee5a6d8 data/minecraft/tags/blocks/wooden_pressure_plates.json
+935fbf1fc1b0d337f51a52b5771796817cd682c0 data/minecraft/tags/blocks/wooden_slabs.json
+e499e04facac5f3fd4901084334b3a7038e54c08 data/minecraft/tags/blocks/wooden_stairs.json
+ab80d4e9488091de59eebb1d3573dfefc8e8f771 data/minecraft/tags/blocks/wooden_trapdoors.json

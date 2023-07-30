@@ -3,7 +3,6 @@ package de.artemis.alchemagica.common.integrations.jei;
 import com.mojang.blaze3d.vertex.PoseStack;
 import de.artemis.alchemagica.Alchemagica;
 import de.artemis.alchemagica.common.recipe.CentrifugeRecipe;
-import de.artemis.alchemagica.common.recipe.MortarAndPestleRecipe;
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

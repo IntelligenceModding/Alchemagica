@@ -1,8 +1,8 @@
 package de.artemis.alchemagica.common.registration;
 
 import de.artemis.alchemagica.Alchemagica;
-import de.artemis.alchemagica.common.world.ModConfiguredFeatures;
-import de.artemis.alchemagica.common.world.ModPlacedFeatures;
+import de.artemis.alchemagica.common.world.feature.ModConfiguredFeatures;
+import de.artemis.alchemagica.common.world.feature.ModPlacedFeatures;
 import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;

@@ -21,8 +21,12 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
+import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public class BlockLootTables extends BlockLoot {
 
@@ -50,6 +54,20 @@ public class BlockLootTables extends BlockLoot {
     @Override
     @NotNull
     protected Iterable<Block> getKnownBlocks() {
-        return Registration.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+
+        ArrayList<Block> registeredBlocks = new ArrayList<Block>();
+        registeredBlocks.add(ModBlocks.ARCANE_BLOSSOM.get());
+        registeredBlocks.add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
+        registeredBlocks.add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
+        registeredBlocks.add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get());
+        registeredBlocks.add(ModBlocks.ARCANE_CRYSTAL_CLUSTER.get());
+        registeredBlocks.add(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get());
+        registeredBlocks.add(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get());
+        registeredBlocks.add(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get());
+        registeredBlocks.add(ModBlocks.ARCANE_SOIL.get());
+        registeredBlocks.add(ModBlocks.MORTAR_AND_PESTLE.get());
+        registeredBlocks.add(ModBlocks.CENTRIFUGE.get());
+
+        return registeredBlocks;
     }
 }

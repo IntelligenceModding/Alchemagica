@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "alchemagica:block/stripped_arcane_log_top",
+    "side": "alchemagica:block/stripped_arcane_log"
+  }
+}

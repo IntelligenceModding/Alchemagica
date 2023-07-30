@@ -55,7 +55,7 @@ public class ArcaneBlossomCropBlock extends CropBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
-        return blockState.is(ModTags.Block.MAY_FARM_ARCANE_CROPS_ON);
+        return blockState.is(ModTags.Block.ARCANE_CROPS_GROW_ON);
     }
 
     @Override

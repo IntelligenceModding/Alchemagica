@@ -1,5 +1,8 @@
-package de.artemis.alchemagica.common.world;
+package de.artemis.alchemagica.common.world.feature;
 
+import de.artemis.alchemagica.common.registration.ModBlocks;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.RegistryObject;
@@ -20,6 +23,14 @@ public class ModPlacedFeatures {
                     RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(),
                     HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(30)),
                     BiomeFilter.biome())));
+
+    public static final RegistryObject<PlacedFeature> ARCANE_TREE_CHECKED = PLACED_FEATURES.register("arcane_tree_checked",
+            () -> new PlacedFeature(ModConfiguredFeatures.ARCANE_TREE.getHolder().get(),
+                    List.of(PlacementUtils.filteredByBlockSurvival(ModBlocks.ARCANE_SAPLING.get()))));
+
+    public static final RegistryObject<PlacedFeature> ARCANE_TREE_PLACED = PLACED_FEATURES.register("arcane_tree_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.ARCANE_TREE_SPAWN.getHolder().get(),
+                    VegetationPlacements.treePlacement(RarityFilter.onAverageOnceEvery(100))));
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());

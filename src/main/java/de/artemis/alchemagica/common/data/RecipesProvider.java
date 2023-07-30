@@ -16,6 +16,5 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
 
     @Override
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-
     }
 }

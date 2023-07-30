@@ -80,6 +80,9 @@ public class ModItems {
     public static final RegistryObject<BarkItem> ARCANE_BARK = Registration.ITEMS.register("arcane_bark",
             () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> ARCANE_STICK = Registration.ITEMS.register("arcane_stick",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
     public static void register() {
     }
 

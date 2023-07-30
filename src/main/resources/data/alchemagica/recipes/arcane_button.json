@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "alchemagica:arcane_planks"
+    }
+  ],
+  "result": {
+    "item": "alchemagica:arcane_button"
+  }
+}

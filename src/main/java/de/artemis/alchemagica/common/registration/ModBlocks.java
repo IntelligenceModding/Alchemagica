@@ -90,7 +90,7 @@ public class ModBlocks {
     public static final RegistryObject<StairBlock> ARCANE_STAIRS = register("arcane_stairs",
             () -> new StairBlock(ARCANE_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(ARCANE_PLANKS.get())));
 
-    public static final RegistryObject<FlowerPotBlock> POTTED_ARCANE_SAPLING = register("potted_arcane_sapling",
+    public static final RegistryObject<FlowerPotBlock> POTTED_ARCANE_SAPLING = registerWithoutBlockItem("potted_arcane_sapling",
             () -> new FlowerPotBlock(ARCANE_SAPLING.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
 
     public static final RegistryObject<WoodButtonBlock> ARCANE_BUTTON = register("arcane_button",

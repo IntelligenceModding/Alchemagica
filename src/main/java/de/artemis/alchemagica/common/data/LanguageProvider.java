@@ -49,6 +49,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.CRIMSON_BARK.get(), "Crimson Bark");
         add(ModItems.WARPED_BARK.get(), "Warped Bark");
         add(ModItems.ARCANE_BARK.get(), "Arcane Bark");
+        add(ModItems.ARCANE_STICK.get(), "Arcane Stick");
 
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), "Ancient Petal Cluster");

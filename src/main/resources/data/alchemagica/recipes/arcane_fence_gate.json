@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "key": {
+    "#": {
+      "item": "alchemagica:arcane_stick"
+    },
+    "W": {
+      "item": "alchemagica:arcane_planks"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "result": {
+    "item": "alchemagica:arcane_fence_gate"
+  }
+}

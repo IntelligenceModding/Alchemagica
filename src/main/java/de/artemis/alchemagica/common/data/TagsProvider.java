@@ -8,6 +8,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -48,7 +49,6 @@ public class TagsProvider {
 
             tag(Tags.Blocks.FENCE_GATES_WOODEN).add(ModBlocks.ARCANE_FENCE_GATE.get());
             tag(Tags.Blocks.FENCES_WOODEN).add(ModBlocks.ARCANE_FENCE.get());
-
         }
 
         @NotNull

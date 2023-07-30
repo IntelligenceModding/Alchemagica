@@ -1,9 +1,7 @@
 package de.artemis.alchemagica.common.registration;
 
 import de.artemis.alchemagica.Alchemagica;
-import de.artemis.alchemagica.common.items.ArcaneHoeItem;
-import de.artemis.alchemagica.common.items.ArcanePickaxeItem;
-import de.artemis.alchemagica.common.items.ArcaneShearsItem;
+import de.artemis.alchemagica.common.items.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -46,8 +44,41 @@ public class ModItems {
     public static final RegistryObject<ArcaneHoeItem> ARCANE_HOE = Registration.ITEMS.register("arcane_hoe",
             () -> new ArcaneHoeItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<ArcaneAxeItem> ARCANE_AXE = Registration.ITEMS.register("arcane_axe",
+            () -> new ArcaneAxeItem(new Item.Properties().rarity(ModRarities.ARCANE).tab(Alchemagica.INVENTORY_TAB)));
+
     public static final RegistryObject<SignItem> ARCANE_SIGN = Registration.ITEMS.register("arcane_sign",
-            () -> new SignItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_DECORATIONS), ModBlocks.ARCANE_SIGN.get(), ModBlocks.ARCANE_WALL_SIGN.get()));
+            () -> new SignItem((new Item.Properties()).stacksTo(16).tab(Alchemagica.INVENTORY_TAB), ModBlocks.ARCANE_SIGN.get(), ModBlocks.ARCANE_WALL_SIGN.get()));
+
+    public static final RegistryObject<BarkItem> OAK_BARK = Registration.ITEMS.register("oak_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> BIRCH_BARK = Registration.ITEMS.register("birch_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> SPRUCE_BARK = Registration.ITEMS.register("spruce_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> DARK_OAK_BARK = Registration.ITEMS.register("dark_oak_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> JUNGLE_BARK = Registration.ITEMS.register("jungle_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> ACACIA_BARK = Registration.ITEMS.register("acacia_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> MANGROVE_BARK = Registration.ITEMS.register("mangrove_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> CRIMSON_BARK = Registration.ITEMS.register("crimson_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> WARPED_BARK = Registration.ITEMS.register("warped_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<BarkItem> ARCANE_BARK = Registration.ITEMS.register("arcane_bark",
+            () -> new BarkItem(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
     public static void register() {
     }

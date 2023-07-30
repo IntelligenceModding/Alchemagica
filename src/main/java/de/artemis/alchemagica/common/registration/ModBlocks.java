@@ -5,22 +5,20 @@ import de.artemis.alchemagica.common.blocks.*;
 import de.artemis.alchemagica.common.world.feature.tree.ArcaneTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.SpruceTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("deprecation")
 public class ModBlocks {
 
     public static final RegistryObject<ArcaneBlossomCropBlock> ARCANE_BLOSSOM = register("arcane_blossom",
@@ -63,16 +61,16 @@ public class ModBlocks {
             () -> new SaplingBlock(new ArcaneTreeGrower(), BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
 
     public static final RegistryObject<RotatedPillarBlock> ARCANE_LOG = register("arcane_log",
-            () -> log(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
+            () -> arcaneLogBlock(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
 
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_ARCANE_LOG = register("stripped_arcane_log",
-            () -> log(MaterialColor.PODZOL, MaterialColor.PODZOL));
+            () -> arcaneLogBlock(MaterialColor.PODZOL, MaterialColor.PODZOL));
 
-    public static final RegistryObject<RotatedPillarBlock> ARCANE_WOOD = register("arcane_wood",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<ArcaneLogBlock> ARCANE_WOOD = register("arcane_wood",
+            () -> new ArcaneLogBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)));
 
-    public static final RegistryObject<RotatedPillarBlock> STRIPPED_ARCANE_WOOD = register("stripped_arcane_wood",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<ArcaneLogBlock> STRIPPED_ARCANE_WOOD = register("stripped_arcane_wood",
+            () -> new ArcaneLogBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)));
 
     public static final RegistryObject<LeavesBlock> ARCANE_LEAVES = register("arcane_leaves",
             () -> leaves(SoundType.GRASS));
@@ -125,8 +123,8 @@ public class ModBlocks {
         return toReturn;
     }
 
-    private static RotatedPillarBlock log(MaterialColor topColor, MaterialColor barkColor) {
-        return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (p_152624_) -> {
+    private static ArcaneLogBlock arcaneLogBlock(MaterialColor topColor, MaterialColor barkColor) {
+        return new ArcaneLogBlock(BlockBehaviour.Properties.of(Material.WOOD, (p_152624_) -> {
             return p_152624_.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
         }).strength(2.0F).sound(SoundType.WOOD));
     }

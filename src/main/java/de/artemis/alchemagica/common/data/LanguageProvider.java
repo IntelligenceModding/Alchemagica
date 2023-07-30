@@ -20,7 +20,8 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
 
         add("tooltip.alchemagica.arcane_pickaxe", "Use this Arcane Pickaxe to gather Marvelous Ancient Petal Fragments from Ancient Petal Clusters");
         add("tooltip.alchemagica.arcane_shears", "Use this Arcane Shears to gather more petals from blossoms if they are growing on Arcane Soil. You also don't have to destroy them each time");
-        add("tooltip.alchemagica.arcane_hoe", "Use this Arcane Hoe to turn dirt and other similar blocks into Arcane Soil, further enhancing growth and irigation");
+        add("tooltip.alchemagica.arcane_hoe", "Use this Arcane Hoe to turn dirt and other similar blocks into Arcane Soil, further enhancing growth and irrigation");
+        add("tooltip.alchemagica.arcane_axe", "Use this Arcane Axe to gather Bark from any tree, as well as Arcane Bark from Arcane Trees.");
 
         add("displayname.alchemagica.mortar_and_pestle_block_entity", "Mortar And Pestle");
         add("displayname.alchemagica.centrifuge_block_entity", "Centrifuge");
@@ -36,7 +37,18 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get(), "Marvelous Ancient Petal Fragment");
         add(ModItems.ARCANE_PICKAXE.get(), "Arcane Pickaxe");
         add(ModItems.ARCANE_HOE.get(), "Arcane Hoe");
+        add(ModItems.ARCANE_AXE.get(), "Arcane Axe");
         add(ModItems.ARCANE_SIGN.get(), "Arcane Sign");
+        add(ModItems.OAK_BARK.get(), "Oak Bark");
+        add(ModItems.BIRCH_BARK.get(), "Birch Bark");
+        add(ModItems.SPRUCE_BARK.get(), "Spruce Bark");
+        add(ModItems.DARK_OAK_BARK.get(), "Dark Oak Bark");
+        add(ModItems.JUNGLE_BARK.get(), "Jungle Bark");
+        add(ModItems.ACACIA_BARK.get(), "Acacia Bark");
+        add(ModItems.MANGROVE_BARK.get(), "Mangrove Bark");
+        add(ModItems.CRIMSON_BARK.get(), "Crimson Bark");
+        add(ModItems.WARPED_BARK.get(), "Warped Bark");
+        add(ModItems.ARCANE_BARK.get(), "Arcane Bark");
 
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), "Ancient Petal Cluster");

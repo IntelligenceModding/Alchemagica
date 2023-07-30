@@ -27,6 +27,17 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.ANCIENT_PETAL_FRAGMENT.get());
         simpleItem(ModItems.ARCANE_PICKAXE.get());
         simpleItem(ModItems.ARCANE_HOE.get());
+        simpleItem(ModItems.ARCANE_AXE.get());
+        simpleItem(ModItems.OAK_BARK.get());
+        simpleItem(ModItems.BIRCH_BARK.get());
+        simpleItem(ModItems.SPRUCE_BARK.get());
+        simpleItem(ModItems.DARK_OAK_BARK.get());
+        simpleItem(ModItems.JUNGLE_BARK.get());
+        simpleItem(ModItems.ACACIA_BARK.get());
+        simpleItem(ModItems.MANGROVE_BARK.get());
+        simpleItem(ModItems.CRIMSON_BARK.get());
+        simpleItem(ModItems.WARPED_BARK.get());
+        simpleItem(ModItems.ARCANE_BARK.get());
 
         itemWithParticle(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
 

@@ -18,7 +18,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add("keybind.alchemagica.category", "Alchemagica");
         add("keybind.alchemagica.toggle_description_keybind", "Show Description");
 
-        add("tooltip.alchemagica.arcane_pickaxe", "Use this Arcane Pickaxe to gather Marvelous Ancient Petal Fragments from Ancient Petal Clusters");
+        add("tooltip.alchemagica.arcane_pickaxe", "Use this Arcane Pickaxe to gather Marvelous Ancient Petal Fragments from Ancient Petal Clusters, as well as Budding Arcane Crystals");
         add("tooltip.alchemagica.arcane_shears", "Use this Arcane Shears to gather more petals from blossoms if they are growing on Arcane Soil. You also don't have to destroy them each time");
         add("tooltip.alchemagica.arcane_hoe", "Use this Arcane Hoe to turn dirt and other similar blocks into Arcane Soil, further enhancing growth and irrigation");
         add("tooltip.alchemagica.arcane_axe", "Use this Arcane Axe to gather Bark from any tree, as well as Arcane Bark from Arcane Trees.");

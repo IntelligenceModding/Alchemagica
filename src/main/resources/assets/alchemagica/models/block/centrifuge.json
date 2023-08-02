@@ -2,12 +2,12 @@
 	"render_type": "cutout",
 	"textures": {
 		"particle": "minecraft:block/spruce_planks",
-		"spruce_planks": "minecraft:block/spruce_planks",
+		"spruce_planks": "alchemagica:block/arcane_planks",
 		"cauldron_inner": "minecraft:block/cauldron_inner",
 		"arcane_crystal_block": "alchemagica:block/arcane_crystal_block",
 		"red_wool": "minecraft:block/red_wool",
 		"gold_block": "minecraft:block/gold_block",
-		"stripped_spruce_log": "minecraft:block/stripped_spruce_log",
+		"stripped_spruce_log": "alchemagica:block/stripped_arcane_log",
 		"polished_deepslate": "minecraft:block/polished_deepslate",
 		"centrifuge_glass": "alchemagica:block/centrifuge_glass"
 	},

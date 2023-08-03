@@ -34,6 +34,8 @@ public class BlockLootTables extends BlockLoot {
     protected void addTables() {
         add(ModBlocks.ARCANE_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.ARCANE_BLOSSOM.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_BLOSSOM_SEED.get()));
         add(ModBlocks.IRON_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.IRON_BLOSSOM.get(), ModItems.IRON_BLOSSOM_PETAL.get(), ModItems.IRON_BLOSSOM_SEED.get()));
+        add(ModBlocks.GOLD_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.GOLD_BLOSSOM.get(), ModItems.GOLD_BLOSSOM_PETAL.get(), ModItems.GOLD_BLOSSOM_SEED.get()));
+        add(ModBlocks.COPPER_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.COPPER_BLOSSOM.get(), ModItems.COPPER_BLOSSOM_PETAL.get(), ModItems.COPPER_BLOSSOM_SEED.get()));
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), createOreDrop(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), ModItems.ANCIENT_PETAL_FRAGMENT.get()));
         dropSelf(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), noDrop());
@@ -58,6 +60,8 @@ public class BlockLootTables extends BlockLoot {
         ArrayList<Block> registeredBlocks = new ArrayList<Block>();
         registeredBlocks.add(ModBlocks.ARCANE_BLOSSOM.get());
         registeredBlocks.add(ModBlocks.IRON_BLOSSOM.get());
+        registeredBlocks.add(ModBlocks.GOLD_BLOSSOM.get());
+        registeredBlocks.add(ModBlocks.COPPER_BLOSSOM.get());
         registeredBlocks.add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         registeredBlocks.add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         registeredBlocks.add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get());

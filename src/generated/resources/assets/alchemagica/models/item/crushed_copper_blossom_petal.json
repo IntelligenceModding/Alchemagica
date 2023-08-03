@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alchemagica:item/crushed_copper_blossom_petal"
+  }
+}

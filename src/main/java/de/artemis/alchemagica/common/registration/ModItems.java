@@ -35,6 +35,30 @@ public class ModItems {
     public static final RegistryObject<Item> IRON_BLOSSOM_EXTRACT = Registration.ITEMS.register("iron_blossom_extract",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> GOLD_BLOSSOM_SEED = Registration.ITEMS.register("gold_blossom_seed",
+            () -> new ItemNameBlockItem(ModBlocks.GOLD_BLOSSOM.get(), (new Item.Properties()).tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> GOLD_BLOSSOM_PETAL = Registration.ITEMS.register("gold_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> CRUSHED_GOLD_BLOSSOM_PETAL = Registration.ITEMS.register("crushed_gold_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> GOLD_BLOSSOM_EXTRACT = Registration.ITEMS.register("gold_blossom_extract",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> COPPER_BLOSSOM_SEED = Registration.ITEMS.register("copper_blossom_seed",
+            () -> new ItemNameBlockItem(ModBlocks.COPPER_BLOSSOM.get(), (new Item.Properties()).tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> COPPER_BLOSSOM_PETAL = Registration.ITEMS.register("copper_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> CRUSHED_COPPER_BLOSSOM_PETAL = Registration.ITEMS.register("crushed_copper_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> COPPER_BLOSSOM_EXTRACT = Registration.ITEMS.register("copper_blossom_extract",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
     public static final RegistryObject<Item> ARCANE_CRYSTAL_SHARD = Registration.ITEMS.register("arcane_crystal_shard",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 

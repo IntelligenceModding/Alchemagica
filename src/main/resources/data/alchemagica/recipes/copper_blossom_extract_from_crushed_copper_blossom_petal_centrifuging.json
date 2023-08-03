@@ -1,0 +1,11 @@
+{
+  "type": "alchemagica:centrifuging",
+  "ingredients": [
+    {
+      "item": "alchemagica:crushed_copper_blossom_petal"
+    }
+  ],
+  "output": {
+    "item": "alchemagica:copper_blossom_extract"
+  }
+}

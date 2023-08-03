@@ -1,0 +1,7 @@
+{
+  "parent": "alchemagica:generation/arcane_blossom_stage0",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "base": "alchemagica:block/blossom_base_stage0"
+  }
+}

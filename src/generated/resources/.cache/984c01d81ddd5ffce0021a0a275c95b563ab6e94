@@ -1,4 +1,4 @@
-// 1.19.2	2023-08-03T01:23:12.3570378	Item Models: alchemagica
+// 1.19.2	2023-08-03T16:26:13.8442861	Item Models: alchemagica
 1e1c13b73c923163c569e44339932ed19178b0af assets/alchemagica/models/item/acacia_bark.json
 727718907fd6be835a58e0985f426afb8586f353 assets/alchemagica/models/item/ancient_petal_cluster.json
 f1a813be4e14d3b6489814ccd7d5295934e64d37 assets/alchemagica/models/item/ancient_petal_fragment.json
@@ -19,10 +19,18 @@ da2976c8b5e29022815f3c9d61a5edf65d48a629 assets/alchemagica/models/item/arcane_c
 53d87b934b0edfa6cbb3b59484988266614d1653 assets/alchemagica/models/item/birch_bark.json
 7694537473b1581674495be8c9ce158f504a97ec assets/alchemagica/models/item/budding_arcane_crystal.json
 b0a21c29c4cb92f852a7560b86487b0a240fa950 assets/alchemagica/models/item/centrifuge.json
+162ab1b2d7997b7a08bd3154b3a272d95062330e assets/alchemagica/models/item/copper_blossom_extract.json
+9d20099fb9d073876829a893a6e6e352b3ca7720 assets/alchemagica/models/item/copper_blossom_petal.json
+569bf7bd7ad0a3882162245391375f2e0da7aece assets/alchemagica/models/item/copper_blossom_seed.json
 5ca00958cc654c84ed6987562379b44bcc0536d1 assets/alchemagica/models/item/crimson_bark.json
 fa870e3b586f16dd7afda883b6b9d1610cc42ea5 assets/alchemagica/models/item/crushed_arcane_blossom_petal.json
+249bb80b9b9fc17f6463d2b18d737533871726ba assets/alchemagica/models/item/crushed_copper_blossom_petal.json
+7984af4effe835ef709a98703623c3d8c7b24d09 assets/alchemagica/models/item/crushed_gold_blossom_petal.json
 1a49ab2c3b49d5514bb5f3da19675cc6cd66bc70 assets/alchemagica/models/item/crushed_iron_blossom_petal.json
 1b6a4b3f0d13a52f5c4a789467a2b309919a0f49 assets/alchemagica/models/item/dark_oak_bark.json
+eb15bc7fc9bf2206a131e88f27b2e52944fd498e assets/alchemagica/models/item/gold_blossom_extract.json
+40619b00d0ec3cb9452c8a2dd1e7338081c8f8d9 assets/alchemagica/models/item/gold_blossom_petal.json
+10dc4c3c1d635637978fe2415edfa9c48e522a5b assets/alchemagica/models/item/gold_blossom_seed.json
 e32f7b6745104eb2acb61c4f7a673bf47eb880a2 assets/alchemagica/models/item/iron_blossom_extract.json
 9da2e67d6d3f2caa39510a5d722f29c7266b4bb2 assets/alchemagica/models/item/iron_blossom_petal.json
 3d4267beff1d76fbd025df9dfe03b2ac1158b8eb assets/alchemagica/models/item/iron_blossom_seed.json

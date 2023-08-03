@@ -27,6 +27,12 @@ public class ModBlocks {
     public static final RegistryObject<ArcaneBlossomCropBlock> IRON_BLOSSOM = register("iron_blossom",
             () -> new ArcaneBlossomCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP), ModItems.IRON_BLOSSOM_SEED::get, ModItems.IRON_BLOSSOM_PETAL::get));
 
+    public static final RegistryObject<ArcaneBlossomCropBlock> GOLD_BLOSSOM = register("gold_blossom",
+            () -> new ArcaneBlossomCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP), ModItems.GOLD_BLOSSOM_SEED::get, ModItems.GOLD_BLOSSOM_PETAL::get));
+
+    public static final RegistryObject<ArcaneBlossomCropBlock> COPPER_BLOSSOM = register("copper_blossom",
+            () -> new ArcaneBlossomCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP), ModItems.COPPER_BLOSSOM_SEED::get, ModItems.COPPER_BLOSSOM_PETAL::get));
+
     public static final RegistryObject<AncientPetalClusterBlock> ANCIENT_PETAL_CLUSTER = register("ancient_petal_cluster",
             () -> new AncientPetalClusterBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
 

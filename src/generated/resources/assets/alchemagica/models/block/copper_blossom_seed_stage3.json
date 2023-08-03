@@ -1,0 +1,8 @@
+{
+  "parent": "alchemagica:generation/arcane_blossom_stage3",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "base": "alchemagica:block/blossom_base_stage3",
+    "flower": "alchemagica:block/copper_blossom_flower_stage3"
+  }
+}

@@ -36,6 +36,16 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.CRUSHED_IRON_BLOSSOM_PETAL.get(), "Crushed Iron Blossom Petal");
         add(ModItems.IRON_BLOSSOM_EXTRACT.get(), "Iron Blossom Extract");
 
+        add(ModItems.GOLD_BLOSSOM_SEED.get(), "Gold Blossom Seed");
+        add(ModItems.GOLD_BLOSSOM_PETAL.get(), "Gold Blossom Petal");
+        add(ModItems.CRUSHED_GOLD_BLOSSOM_PETAL.get(), "Crushed Gold Blossom Petal");
+        add(ModItems.GOLD_BLOSSOM_EXTRACT.get(), "Gold Blossom Extract");
+
+        add(ModItems.COPPER_BLOSSOM_SEED.get(), "Copper Blossom Seed");
+        add(ModItems.COPPER_BLOSSOM_PETAL.get(), "Copper Blossom Petal");
+        add(ModItems.CRUSHED_COPPER_BLOSSOM_PETAL.get(), "Crushed Copper Blossom Petal");
+        add(ModItems.COPPER_BLOSSOM_EXTRACT.get(), "Copper Blossom Extract");
+
         add(ModItems.ARCANE_CRYSTAL_SHARD.get(), "Arcane Crystal Shard");
         add(ModItems.ARCANE_SHEARS.get(), "Arcane Shears");
         add(ModItems.ARCANE_CRYSTAL_POWDER.get(), "Arcane Crystal Powder");

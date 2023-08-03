@@ -23,6 +23,8 @@ public class ModelAndBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         cropBlockMaxStageThree(ModBlocks.ARCANE_BLOSSOM.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/arcane_blossom_flower"), new ResourceLocation(Alchemagica.MOD_ID, "block/blossom_base"));
         cropBlockMaxStageThree(ModBlocks.IRON_BLOSSOM.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/iron_blossom_flower"), new ResourceLocation(Alchemagica.MOD_ID, "block/blossom_base"));
+        cropBlockMaxStageThree(ModBlocks.GOLD_BLOSSOM.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/gold_blossom_flower"), new ResourceLocation(Alchemagica.MOD_ID, "block/blossom_base"));
+        cropBlockMaxStageThree(ModBlocks.COPPER_BLOSSOM.get(), new ResourceLocation(Alchemagica.MOD_ID, "block/copper_blossom_flower"), new ResourceLocation(Alchemagica.MOD_ID, "block/blossom_base"));
 
         simpleBlock(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         simpleBlock(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());

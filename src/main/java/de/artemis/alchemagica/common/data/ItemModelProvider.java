@@ -21,6 +21,10 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.ARCANE_BLOSSOM_PETAL.get());
         simpleItem(ModItems.CRUSHED_ARCANE_BLOSSOM_PETAL.get());
         simpleItem(ModItems.ARCANE_BLOSSOM_EXTRACT.get());
+        simpleItem(ModItems.IRON_BLOSSOM_SEED.get());
+        simpleItem(ModItems.IRON_BLOSSOM_PETAL.get());
+        simpleItem(ModItems.CRUSHED_IRON_BLOSSOM_PETAL.get());
+        simpleItem(ModItems.IRON_BLOSSOM_EXTRACT.get());
         simpleItem(ModItems.ARCANE_CRYSTAL_SHARD.get());
         simpleItem(ModItems.ARCANE_SHEARS.get());
         simpleItem(ModItems.ARCANE_CRYSTAL_POWDER.get());

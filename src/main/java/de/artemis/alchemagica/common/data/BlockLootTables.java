@@ -32,9 +32,8 @@ public class BlockLootTables extends BlockLoot {
 
     @Override
     protected void addTables() {
-        LootItemCondition.Builder arcaneBlossomCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ARCANE_BLOSSOM.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ArcaneBlossomCropBlock.AGE, 3));
-
-        add(ModBlocks.ARCANE_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.ARCANE_BLOSSOM.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_BLOSSOM_SEED.get(), arcaneBlossomCondition));
+        add(ModBlocks.ARCANE_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.ARCANE_BLOSSOM.get(), ModItems.ARCANE_BLOSSOM_PETAL.get(), ModItems.ARCANE_BLOSSOM_SEED.get()));
+        add(ModBlocks.IRON_BLOSSOM.get(), createBlossomCropDrops(ModBlocks.IRON_BLOSSOM.get(), ModItems.IRON_BLOSSOM_PETAL.get(), ModItems.IRON_BLOSSOM_SEED.get()));
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), createOreDrop(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), ModItems.ANCIENT_PETAL_FRAGMENT.get()));
         dropSelf(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), noDrop());
@@ -47,8 +46,9 @@ public class BlockLootTables extends BlockLoot {
         dropSelf(ModBlocks.CENTRIFUGE.get());
     }
 
-    protected static LootTable.Builder createBlossomCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {
-        return applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem).when(pDropGrownCropCondition).otherwise(LootItem.lootTableItem(pSeedsItem)))).withPool(LootPool.lootPool().when(pDropGrownCropCondition).add(LootItem.lootTableItem(pSeedsItem))));
+    protected static LootTable.Builder createBlossomCropDrops(Block cropBlock, Item pGrownCropItem, Item pSeedsItem) {
+        LootItemCondition.Builder arcaneBlossomCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(cropBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ArcaneBlossomCropBlock.AGE, 3));
+        return applyExplosionDecay(cropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pGrownCropItem).when(arcaneBlossomCondition).otherwise(LootItem.lootTableItem(pSeedsItem)))).withPool(LootPool.lootPool().when(arcaneBlossomCondition).add(LootItem.lootTableItem(pSeedsItem))));
     }
 
     @Override
@@ -57,6 +57,7 @@ public class BlockLootTables extends BlockLoot {
 
         ArrayList<Block> registeredBlocks = new ArrayList<Block>();
         registeredBlocks.add(ModBlocks.ARCANE_BLOSSOM.get());
+        registeredBlocks.add(ModBlocks.IRON_BLOSSOM.get());
         registeredBlocks.add(ModBlocks.ANCIENT_PETAL_CLUSTER.get());
         registeredBlocks.add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get());
         registeredBlocks.add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get());

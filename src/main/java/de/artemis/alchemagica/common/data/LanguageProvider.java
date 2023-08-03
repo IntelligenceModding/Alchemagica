@@ -30,6 +30,12 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.ARCANE_BLOSSOM_PETAL.get(), "Arcane Blossom Petal");
         add(ModItems.CRUSHED_ARCANE_BLOSSOM_PETAL.get(), "Crushed Arcane Blossom Petal");
         add(ModItems.ARCANE_BLOSSOM_EXTRACT.get(), "Arcane Blossom Extract");
+
+        add(ModItems.IRON_BLOSSOM_SEED.get(), "Iron Blossom Seed");
+        add(ModItems.IRON_BLOSSOM_PETAL.get(), "Iron Blossom Petal");
+        add(ModItems.CRUSHED_IRON_BLOSSOM_PETAL.get(), "Crushed Iron Blossom Petal");
+        add(ModItems.IRON_BLOSSOM_EXTRACT.get(), "Iron Blossom Extract");
+
         add(ModItems.ARCANE_CRYSTAL_SHARD.get(), "Arcane Crystal Shard");
         add(ModItems.ARCANE_SHEARS.get(), "Arcane Shears");
         add(ModItems.ARCANE_CRYSTAL_POWDER.get(), "Arcane Crystal Powder");
@@ -52,6 +58,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
         add(ModItems.ARCANE_STICK.get(), "Arcane Stick");
 
         add(ModBlocks.ARCANE_BLOSSOM.get(), "Arcane Blossom");
+        add(ModBlocks.IRON_BLOSSOM.get(), "Iron Blossom");
         add(ModBlocks.ANCIENT_PETAL_CLUSTER.get(), "Ancient Petal Cluster");
         add(ModBlocks.ARCANE_CRYSTAL_BLOCK.get(), "Arcane Crystal Block");
         add(ModBlocks.BUDDING_ARCANE_CRYSTAL.get(), "Budding Arcane Crystal");

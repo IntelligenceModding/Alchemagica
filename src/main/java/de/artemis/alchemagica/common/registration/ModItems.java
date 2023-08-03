@@ -23,6 +23,18 @@ public class ModItems {
     public static final RegistryObject<Item> ARCANE_BLOSSOM_EXTRACT = Registration.ITEMS.register("arcane_blossom_extract",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> IRON_BLOSSOM_SEED = Registration.ITEMS.register("iron_blossom_seed",
+            () -> new ItemNameBlockItem(ModBlocks.IRON_BLOSSOM.get(), (new Item.Properties()).tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> IRON_BLOSSOM_PETAL = Registration.ITEMS.register("iron_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> CRUSHED_IRON_BLOSSOM_PETAL = Registration.ITEMS.register("crushed_iron_blossom_petal",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
+    public static final RegistryObject<Item> IRON_BLOSSOM_EXTRACT = Registration.ITEMS.register("iron_blossom_extract",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
     public static final RegistryObject<Item> ARCANE_CRYSTAL_SHARD = Registration.ITEMS.register("arcane_crystal_shard",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 

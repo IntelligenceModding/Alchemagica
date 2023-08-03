@@ -3,6 +3,6 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "base": "alchemagica:block/blossom_base_stage2",
-    "flower": "alchemagica:block/arcane_blossom_flower_stage2"
+    "flower": "alchemagica:block/iron_blossom_flower_stage2"
   }
 }

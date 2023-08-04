@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "alchemagica:arcane_stick"
+    },
+    "B": {
+      "item": "alchemagica:arcane_crystal_shard"
+    },
+    "C": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "BC ",
+    "BA ",
+    " A "
+  ],
+  "result": {
+    "item": "alchemagica:arcane_axe"
+  }
+}

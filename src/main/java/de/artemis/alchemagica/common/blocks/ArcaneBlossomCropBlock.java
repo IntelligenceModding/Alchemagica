@@ -75,7 +75,7 @@ public class ArcaneBlossomCropBlock extends CropBlock {
                 itemStackInHand.shrink(1);
             }
 
-            if (level.random.nextFloat() < 0.45D) {
+            if (level.random.nextFloat() < 0.75D && !level.isClientSide) {
                 level.setBlock(blockPos, blockState.setValue(AGE, blockState.getValue(AGE) + 1), 3);
             }
 

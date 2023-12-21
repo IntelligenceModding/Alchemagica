@@ -1,6 +1,8 @@
 package de.artemis.alchemagica.common.containers.menus;
 
 import de.artemis.alchemagica.common.blockentities.CentrifugeBlockEntity;
+import de.artemis.alchemagica.common.containers.slots.ModInputSlot;
+import de.artemis.alchemagica.common.containers.slots.ModOutputSlot;
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
@@ -34,10 +36,10 @@ public class CentrifugeMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 79, 17));
-            this.addSlot(new SlotItemHandler(handler, 1, 56, 51));
-            this.addSlot(new SlotItemHandler(handler, 2, 79, 58));
-            this.addSlot(new SlotItemHandler(handler, 3, 102, 51));
+            this.addSlot(new ModInputSlot(handler, 0, 79, 17)); // Input
+            this.addSlot(new ModOutputSlot(handler, 1, 56, 51)); // Output
+            this.addSlot(new ModOutputSlot(handler, 2, 79, 58)); // Output
+            this.addSlot(new ModOutputSlot(handler, 3, 102, 51)); // Output
         });
 
         addDataSlots(data);

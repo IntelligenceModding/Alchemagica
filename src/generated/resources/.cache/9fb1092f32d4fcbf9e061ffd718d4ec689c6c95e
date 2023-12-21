@@ -1,4 +1,4 @@
-// 1.19.2	2023-08-04T12:39:11.5199885	Recipes
+// 1.19.2	2023-12-21T23:03:27.0138557	Recipes
 cb36a0eab937b953f126d24c390ba5a5a2adeeab data/alchemagica/advancements/recipes/alchemagica/arcane_axe.json
 f96b188c906c48d5c75649733ca17c5d5bebfa2f data/alchemagica/advancements/recipes/alchemagica/arcane_hoe.json
 764e986d8b7047bdfd37e4aae264113f58ddd525 data/alchemagica/advancements/recipes/alchemagica/arcane_pickaxe.json
@@ -7,3 +7,5 @@ f96b188c906c48d5c75649733ca17c5d5bebfa2f data/alchemagica/advancements/recipes/a
 e37b77c0d8b584a42123e76346f469cba5f8cb73 data/alchemagica/recipes/arcane_hoe.json
 7be659b8a3e6145fa4c6e02693fb53d3c5938197 data/alchemagica/recipes/arcane_pickaxe.json
 8e508f8e69bf84533d298b6ae93efaf1dd9b7582 data/alchemagica/recipes/arcane_shears.json
+84cd7180c06cc45e095e5a82a93c14dbc62d60d8 data/minecraft/advancements/recipes/misc/iron_nugget.json
+d6145704dd2e5b7f0a493a91cac7f6c10f00b7b2 data/minecraft/recipes/iron_nugget.json

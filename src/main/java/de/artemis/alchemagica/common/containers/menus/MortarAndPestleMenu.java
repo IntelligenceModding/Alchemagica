@@ -1,6 +1,8 @@
 package de.artemis.alchemagica.common.containers.menus;
 
 import de.artemis.alchemagica.common.blockentities.MortarAndPestleBlockEntity;
+import de.artemis.alchemagica.common.containers.slots.ModInputSlot;
+import de.artemis.alchemagica.common.containers.slots.ModOutputSlot;
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
@@ -11,7 +13,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 
 public class MortarAndPestleMenu extends AbstractContainerMenu {
@@ -34,8 +35,8 @@ public class MortarAndPestleMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 56, 34));
-            this.addSlot(new SlotItemHandler(handler, 1, 116, 35));
+            this.addSlot(new ModInputSlot(handler, 0, 56, 34)); // Input
+            this.addSlot(new ModOutputSlot(handler, 1, 116, 35)); // Output
         });
 
         addDataSlots(data);

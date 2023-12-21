@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    },
+    {
+      "item": "alchemagica:iron_blossom_extract"
+    }
+  ],
+  "result": {
+    "item": "minecraft:iron_nugget"
+  }
+}

@@ -3,6 +3,7 @@ package de.artemis.alchemagica.common.blockentities;
 import de.artemis.alchemagica.common.containers.menus.MortarAndPestleMenu;
 import de.artemis.alchemagica.common.recipe.MortarAndPestleRecipe;
 import de.artemis.alchemagica.common.registration.ModBlockEntities;
+import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -101,6 +102,9 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
         if (hasRecipe()) {
             progress++;
             setChanged();
+            if ((progress & 10) == 0) {
+                ParticleUtil.addArcaneGrowthParticles(level, this.getBlockPos(), 1, 0.02F);
+            }
 
             if (progress >= maxProgress) {
                 craftItem();

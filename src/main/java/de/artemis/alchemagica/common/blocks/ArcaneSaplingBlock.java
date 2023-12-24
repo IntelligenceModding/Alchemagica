@@ -34,7 +34,7 @@ public class ArcaneSaplingBlock extends SaplingBlock {
         if (itemStackInHand.is(ModItems.ARCANE_CRYSTAL_POWDER.get())) {
             if (level.isClientSide) {
                 level.playSound(player, blockPos, SoundEvents.AMETHYST_BLOCK_STEP, SoundSource.BLOCKS, 1.0F, 1.0F);
-                ParticleUtil.addArcaneGrowthParticles(level, blockPos, 15);
+                ParticleUtil.addArcaneGrowthParticles(level, blockPos, 15, 0.02F);
 
                 return InteractionResult.SUCCESS;
             }

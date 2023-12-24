@@ -3,6 +3,7 @@ package de.artemis.alchemagica.common.blockentities;
 import de.artemis.alchemagica.common.containers.menus.CentrifugeMenu;
 import de.artemis.alchemagica.common.recipe.CentrifugeRecipe;
 import de.artemis.alchemagica.common.registration.ModBlockEntities;
+import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -102,7 +103,9 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
         if (hasRecipe()) {
             progress++;
             setChanged();
-
+            if ((progress & 10) == 0) {
+                ParticleUtil.addArcaneGrowthParticles(level, this.getBlockPos(), 1, 0.02F);
+            }
             if (progress >= maxProgress) {
                 craftItem();
             }
@@ -137,6 +140,7 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
 
 
     private boolean hasRecipe() {
+        BlockPos blockPos = getBlockPos();
         Level level = getLevel();
         SimpleContainer inventory = new SimpleContainer(getContainerSize());
         for (int i = 0; i < getContainerSize(); i++) {

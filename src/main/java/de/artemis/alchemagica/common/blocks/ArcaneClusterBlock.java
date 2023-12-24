@@ -1,15 +1,19 @@
 package de.artemis.alchemagica.common.blocks;
 
 import de.artemis.alchemagica.common.registration.ModItems;
+import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 
 public class ArcaneClusterBlock extends AmethystClusterBlock {
     public ArcaneClusterBlock(int size, int offset, Properties properties) {
@@ -25,5 +29,11 @@ public class ArcaneClusterBlock extends AmethystClusterBlock {
         }
 
         return super.onDestroyedByPlayer(blockState, level, blockPos, player, willHarvest, fluid);
+    }
+
+    @Override
+    public void onProjectileHit(@NotNull Level level, @NotNull BlockState blockState, BlockHitResult blockHitResult, @NotNull Projectile projectile) {
+        ParticleUtil.addArcaneGrowthParticles(level, blockHitResult.getBlockPos(), 3, 0.1F);
+        super.onProjectileHit(level, blockState, blockHitResult, projectile);
     }
 }

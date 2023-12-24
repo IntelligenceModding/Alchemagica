@@ -69,7 +69,7 @@ public class ArcaneBlossomCropBlock extends CropBlock {
         // Using Arcane Powder, to speed up growth
         if (itemStackInHand.is(ModItems.ARCANE_CRYSTAL_POWDER.get()) && !blockState.getValue(AGE).equals(getMaxAge())) {
             level.playSound(player, blockPos, SoundEvents.AMETHYST_BLOCK_STEP, SoundSource.BLOCKS, 1.0F, 1.0F);
-            ParticleUtil.addArcaneGrowthParticles(level, blockPos, 1);
+            ParticleUtil.addArcaneGrowthParticles(level, blockPos, 1, 0.02F);
 
             if (!player.isCreative() && !level.isClientSide) {
                 itemStackInHand.shrink(1);

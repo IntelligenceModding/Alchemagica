@@ -2,6 +2,7 @@ package de.artemis.alchemagica.common.blocks;
 
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModItems;
+import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -46,12 +47,16 @@ public class BuddingArcaneCrystalBlock extends BuddingAmethystBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get();
+                ParticleUtil.addArcaneGrowthParticles(serverLevel, blockPos, 3, 0.02F);
             } else if (blockstate.is(ModBlocks.SMALL_ARCANE_CRYSTAL_BUD.get()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get();
+                ParticleUtil.addArcaneGrowthParticles(serverLevel, blockPos, 3, 0.02F);
             } else if (blockstate.is(ModBlocks.MEDIUM_ARCANE_CRYSTAL_BUD.get()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get();
+                ParticleUtil.addArcaneGrowthParticles(serverLevel, blockPos, 3, 0.02F);
             } else if (blockstate.is(ModBlocks.LARGE_ARCANE_CRYSTAL_BUD.get()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = ModBlocks.ARCANE_CRYSTAL_CLUSTER.get();
+                ParticleUtil.addArcaneGrowthParticles(serverLevel, blockPos, 3, 0.02F);
             }
 
             if (block != null) {

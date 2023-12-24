@@ -119,6 +119,9 @@ public class ModItems {
     public static final RegistryObject<Item> ARCANE_STICK = Registration.ITEMS.register("arcane_stick",
             () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
 
+    public static final RegistryObject<Item> COPPER_NUGGET = Registration.ITEMS.register("copper_nugget",
+            () -> new Item(new Item.Properties().tab(Alchemagica.INVENTORY_TAB)));
+
     public static void register() {
     }
 

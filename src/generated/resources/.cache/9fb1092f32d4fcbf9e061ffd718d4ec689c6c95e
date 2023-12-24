@@ -1,11 +1,15 @@
-// 1.19.2	2023-12-21T23:03:27.0138557	Recipes
+// 1.19.2	2023-12-24T03:19:50.9495631	Recipes
 cb36a0eab937b953f126d24c390ba5a5a2adeeab data/alchemagica/advancements/recipes/alchemagica/arcane_axe.json
 f96b188c906c48d5c75649733ca17c5d5bebfa2f data/alchemagica/advancements/recipes/alchemagica/arcane_hoe.json
 764e986d8b7047bdfd37e4aae264113f58ddd525 data/alchemagica/advancements/recipes/alchemagica/arcane_pickaxe.json
 8fcd5b0011f204055128c6c82e255c89ef969d19 data/alchemagica/advancements/recipes/alchemagica/arcane_shears.json
+34beb39b653aa7f75bb7156c0e844e670a71d9fc data/alchemagica/advancements/recipes/alchemagica/copper_nugget.json
 4135bae2171176ba311d9a70056cd5f4ef0e2a85 data/alchemagica/recipes/arcane_axe.json
 e37b77c0d8b584a42123e76346f469cba5f8cb73 data/alchemagica/recipes/arcane_hoe.json
 7be659b8a3e6145fa4c6e02693fb53d3c5938197 data/alchemagica/recipes/arcane_pickaxe.json
 8e508f8e69bf84533d298b6ae93efaf1dd9b7582 data/alchemagica/recipes/arcane_shears.json
+baf5e97c8c59de42dbfe77baadf45ce1d4a76013 data/alchemagica/recipes/copper_nugget.json
+a8f72c83c753a3e85857e4ee718cba7f15cdabf1 data/minecraft/advancements/recipes/misc/gold_nugget.json
 84cd7180c06cc45e095e5a82a93c14dbc62d60d8 data/minecraft/advancements/recipes/misc/iron_nugget.json
+d176690ea62029f7c401b9392989a4844195bc5d data/minecraft/recipes/gold_nugget.json
 d6145704dd2e5b7f0a493a91cac7f6c10f00b7b2 data/minecraft/recipes/iron_nugget.json

@@ -51,6 +51,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         simpleItem(ModItems.WARPED_BARK.get());
         simpleItem(ModItems.ARCANE_BARK.get());
         simpleItem(ModItems.ARCANE_STICK.get());
+        simpleItem(ModItems.COPPER_NUGGET.get());
 
         itemWithParticle(ModItems.MARVELOUS_ANCIENT_PETAL_FRAGMENT.get());
 

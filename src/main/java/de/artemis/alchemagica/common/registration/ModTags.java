@@ -23,6 +23,7 @@ public class ModTags {
 
     public static class Item {
         public static final TagKey<net.minecraft.world.item.Item> PETAL = tag("petal");
+        public static final TagKey<net.minecraft.world.item.Item> COPPER_NUGGET = tag("items/nuggets/copper");
 
         private static TagKey<net.minecraft.world.item.Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(Alchemagica.MOD_ID, name));

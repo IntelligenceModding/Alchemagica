@@ -2,6 +2,7 @@ package de.artemis.alchemagica.common.items;
 
 import de.artemis.alchemagica.common.registration.ModKeyBindings;
 import de.artemis.alchemagica.common.registration.ModTiers;
+import de.artemis.alchemagica.common.util.KeyBindingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -15,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ArcanePickaxeItem extends PickaxeItem {
+
     public ArcanePickaxeItem(Properties properties) {
         super(ModTiers.ARCANE, 1, -2.8F, properties);
     }
@@ -22,7 +24,7 @@ public class ArcanePickaxeItem extends PickaxeItem {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 
-        if (ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.isDown()) {
+        if (KeyBindingUtil.isKeyPressed(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND)) {
             tooltip.add(Component.translatable("tooltip.alchemagica.arcane_pickaxe").withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(Component.translatable(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(16643423)));

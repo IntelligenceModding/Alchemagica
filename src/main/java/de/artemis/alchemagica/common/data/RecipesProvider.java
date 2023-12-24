@@ -28,7 +28,7 @@ public class RecipesProvider extends RecipeProvider implements IConditionBuilder
 
         ShapelessRecipeBuilder.shapeless(Items.IRON_NUGGET, 1).requires(ModItems.IRON_BLOSSOM_EXTRACT.get(), 9).unlockedBy("has_iron_blossom_extract", has(ModItems.IRON_BLOSSOM_EXTRACT.get())).save(consumer);
         ShapelessRecipeBuilder.shapeless(Items.GOLD_NUGGET, 1).requires(ModItems.GOLD_BLOSSOM_EXTRACT.get(), 9).unlockedBy("has_gold_blossom_extract", has(ModItems.GOLD_BLOSSOM_EXTRACT.get())).save(consumer);
-        //ShapelessRecipeBuilder.shapeless(Items.IRON_NUGGET, 1).requires(ModItems.IRON_BLOSSOM_EXTRACT.get(), 9).unlockedBy("has_iron_blossom_extract", has(ModItems.IRON_BLOSSOM_EXTRACT.get())).save(consumer);
+        ShapelessRecipeBuilder.shapeless(ModItems.COPPER_NUGGET.get(), 1).requires(ModItems.COPPER_BLOSSOM_EXTRACT.get(), 9).unlockedBy("has_copper_blossom_extract", has(ModItems.COPPER_BLOSSOM_EXTRACT.get())).save(consumer);
 
     }
 }

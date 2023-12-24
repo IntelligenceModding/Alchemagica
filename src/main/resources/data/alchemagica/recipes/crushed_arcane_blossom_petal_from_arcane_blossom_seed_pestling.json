@@ -1,0 +1,11 @@
+{
+  "type": "alchemagica:pestling",
+  "ingredients": [
+    {
+      "item": "alchemagica:arcane_blossom_seed"
+    }
+  ],
+  "output": {
+    "item": "alchemagica:crushed_arcane_blossom_petal"
+  }
+}

@@ -4,6 +4,7 @@ import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.ModKeyBindings;
 import de.artemis.alchemagica.common.registration.ModTiers;
+import de.artemis.alchemagica.common.util.KeyBindingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -30,6 +31,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ArcaneAxeItem extends AxeItem {
+
     public ArcaneAxeItem(Properties properties) {
         super(ModTiers.ARCANE, 6.0F, -3.1F, properties);
     }
@@ -121,7 +123,7 @@ public class ArcaneAxeItem extends AxeItem {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 
-        if (ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.isDown()) {
+        if (KeyBindingUtil.isKeyPressed(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND)) {
             tooltip.add(Component.translatable("tooltip.alchemagica.arcane_axe").withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(Component.translatable(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(16643423)));

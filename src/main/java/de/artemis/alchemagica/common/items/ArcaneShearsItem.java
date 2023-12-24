@@ -2,6 +2,7 @@ package de.artemis.alchemagica.common.items;
 
 import de.artemis.alchemagica.common.registration.ModKeyBindings;
 import de.artemis.alchemagica.common.registration.ModTiers;
+import de.artemis.alchemagica.common.util.KeyBindingUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -31,6 +32,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ArcaneShearsItem extends TieredItem {
+
     public ArcaneShearsItem(Item.Properties properties) {
         super(ModTiers.ARCANE, properties);
     }
@@ -38,7 +40,7 @@ public class ArcaneShearsItem extends TieredItem {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
 
-        if (ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.isDown()) {
+        if (KeyBindingUtil.isKeyPressed(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND)) {
             tooltip.add(Component.translatable("tooltip.alchemagica.arcane_shears").withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(Component.translatable(ModKeyBindings.TOGGLE_DESCRIPTION_KEYBIND.getKey().getDisplayName().getString()).withStyle(Style.EMPTY.withColor(16643423)));

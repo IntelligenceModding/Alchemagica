@@ -1,4 +1,4 @@
-// 1.19.2	2023-08-03T16:26:13.8442861	Item Models: alchemagica
+// 1.19.2	2023-12-24T03:07:06.3191369	Item Models: alchemagica
 1e1c13b73c923163c569e44339932ed19178b0af assets/alchemagica/models/item/acacia_bark.json
 727718907fd6be835a58e0985f426afb8586f353 assets/alchemagica/models/item/ancient_petal_cluster.json
 f1a813be4e14d3b6489814ccd7d5295934e64d37 assets/alchemagica/models/item/ancient_petal_fragment.json
@@ -22,6 +22,7 @@ b0a21c29c4cb92f852a7560b86487b0a240fa950 assets/alchemagica/models/item/centrifu
 162ab1b2d7997b7a08bd3154b3a272d95062330e assets/alchemagica/models/item/copper_blossom_extract.json
 9d20099fb9d073876829a893a6e6e352b3ca7720 assets/alchemagica/models/item/copper_blossom_petal.json
 569bf7bd7ad0a3882162245391375f2e0da7aece assets/alchemagica/models/item/copper_blossom_seed.json
+8c0c22a84783233becaba85498fa3971b737cbf4 assets/alchemagica/models/item/copper_nugget.json
 5ca00958cc654c84ed6987562379b44bcc0536d1 assets/alchemagica/models/item/crimson_bark.json
 fa870e3b586f16dd7afda883b6b9d1610cc42ea5 assets/alchemagica/models/item/crushed_arcane_blossom_petal.json
 249bb80b9b9fc17f6463d2b18d737533871726ba assets/alchemagica/models/item/crushed_copper_blossom_petal.json

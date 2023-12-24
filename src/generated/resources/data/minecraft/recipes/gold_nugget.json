@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    },
+    {
+      "item": "alchemagica:gold_blossom_extract"
+    }
+  ],
+  "result": {
+    "item": "minecraft:gold_nugget"
+  }
+}

@@ -6,6 +6,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import org.jetbrains.annotations.Nullable;
 
 public class BarkItem extends Item {
+
     public BarkItem(Properties properties) {
         super(properties);
     }

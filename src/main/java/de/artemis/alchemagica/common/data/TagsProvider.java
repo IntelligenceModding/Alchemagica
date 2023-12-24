@@ -76,6 +76,7 @@ public class TagsProvider {
         @Override
         protected void addTags() {
             tag(ModTags.Item.PETAL).add(ModItems.ARCANE_BLOSSOM_PETAL.get());
+            tag(ModTags.Item.COPPER_NUGGET).add(ModItems.COPPER_NUGGET.get());
         }
 
         @NotNull

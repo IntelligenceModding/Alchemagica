@@ -34,11 +34,19 @@ public class CentrifugeScreen extends AbstractContainerScreen<CentrifugeMenu> {
         this.blit(poseStack, x, y, 0, 0, imageWidth, imageHeight);
 
         renderProgressArrow(poseStack, x, y);
+        renderFuel(poseStack, x, y);
     }
 
     private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
         if (menu.isCrafting()) {
-            blit(pPoseStack, x + 98, y + 17, 177, 1, 27, menu.getScaledProgress());
+            blit(pPoseStack, x + 98, y + 17, 177, 1, 7, menu.getScaledProgress());
+        }
+    }
+
+    private void renderFuel(PoseStack poseStack, int x, int y) {
+        if (menu.blockEntity.getFuel() > 0) {
+            int height = (int) (29F / 10F * menu.blockEntity.getFuel());
+            blit(poseStack, x + 12, y + 18 + 29 - height, 186, 29 - height, 8, height);
         }
     }
 

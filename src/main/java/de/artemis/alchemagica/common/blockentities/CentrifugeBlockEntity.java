@@ -3,6 +3,7 @@ package de.artemis.alchemagica.common.blockentities;
 import de.artemis.alchemagica.common.containers.menus.CentrifugeMenu;
 import de.artemis.alchemagica.common.recipe.CentrifugeRecipe;
 import de.artemis.alchemagica.common.registration.ModBlockEntities;
+import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,8 +18,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BrewingStandBlock;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
+import net.minecraft.world.level.block.entity.BrewingStandBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -28,6 +33,7 @@ import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
@@ -37,6 +43,7 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 100;
+    private int fuel;
 
     public CentrifugeBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CENTRIFUGE.get(), blockPos, blockState);
@@ -44,8 +51,9 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> CentrifugeBlockEntity.this.progress;
-                    case 1, 2, 3 -> CentrifugeBlockEntity.this.maxProgress;
+                    case 0 -> CentrifugeBlockEntity.this.fuel;
+                    case 1 -> CentrifugeBlockEntity.this.maxProgress;
+                    case 2, 3, 4 -> CentrifugeBlockEntity.this.progress;
                     default -> 0;
                 };
             }
@@ -53,14 +61,15 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> CentrifugeBlockEntity.this.progress = value;
-                    case 1, 2, 3 -> CentrifugeBlockEntity.this.maxProgress = value;
+                    case 0 -> CentrifugeBlockEntity.this.fuel = value;
+                    case 1 -> CentrifugeBlockEntity.this.maxProgress = value;
+                    case 2, 3, 4 -> CentrifugeBlockEntity.this.progress = value;
                 }
             }
 
             @Override
             public int getCount() {
-                return 4;
+                return 5;
             }
         };
 
@@ -89,6 +98,7 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
     @Override
     protected void saveAdditional(@NotNull CompoundTag nbt) {
         ContainerHelper.saveAllItems(nbt, this.items, true);
+        nbt.putInt("fuel", fuel);
         super.saveAdditional(nbt);
     }
 
@@ -96,9 +106,17 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
     public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
         ContainerHelper.loadAllItems(nbt, this.items);
+        this.fuel = nbt.getInt("fuel");
     }
 
     public void tick() {
+        ItemStack itemstack = this.items.get(0);
+
+        if (this.fuel <= 0 && itemstack.is(ModItems.ARCANE_CRYSTAL_POWDER.get())) {
+            this.fuel = 10;
+            itemstack.shrink(1);
+            setChanged(level, this.getBlockPos(), this.getBlockState());
+        }
 
         if (hasRecipe()) {
             progress++;
@@ -108,6 +126,7 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
             }
             if (progress >= maxProgress) {
                 craftItem();
+                fuel--;
             }
         } else {
             resetProgress();
@@ -122,17 +141,17 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
     private void craftItem() {
         Level level = getLevel();
         SimpleContainer inventory = new SimpleContainer(getContainerSize());
-        for (int i = 0; i < getContainerSize(); i++) {
-            inventory.setItem(i, getItem(i));
+        for (int i = 1; i < getContainerSize(); i++) {
+            inventory.setItem(i - 1, getItem(i));
         }
 
         Optional<CentrifugeRecipe> recipe = level.getRecipeManager().getRecipeFor(CentrifugeRecipe.Type.INSTANCE, inventory, level);
 
         if (hasRecipe()) {
-            removeItem(0, 1);
-            setItem(1, new ItemStack(recipe.get().getResultItem().getItem(), getItem(1).getCount() + 1));
+            removeItem(1, 1);
             setItem(2, new ItemStack(recipe.get().getResultItem().getItem(), getItem(2).getCount() + 1));
             setItem(3, new ItemStack(recipe.get().getResultItem().getItem(), getItem(3).getCount() + 1));
+            setItem(4, new ItemStack(recipe.get().getResultItem().getItem(), getItem(4).getCount() + 1));
 
             resetProgress();
         }
@@ -140,29 +159,34 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
 
 
     private boolean hasRecipe() {
-        BlockPos blockPos = getBlockPos();
         Level level = getLevel();
         SimpleContainer inventory = new SimpleContainer(getContainerSize());
-        for (int i = 0; i < getContainerSize(); i++) {
-            inventory.setItem(i, getItem(i));
+        for (int i = 1; i < getContainerSize(); i++) {
+            inventory.setItem(i - 1, getItem(i));
         }
 
         Optional<CentrifugeRecipe> recipe = level.getRecipeManager().getRecipeFor(CentrifugeRecipe.Type.INSTANCE, inventory, level);
-        return recipe.isPresent() && hasOutputCountSpace(inventory) && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
+        return recipe.isPresent() && hasOutputCountSpace(inventory) && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem()) && fuel > 0;
     }
 
     private boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(1).getItem() == itemStack.getItem() || inventory.getItem(1).isEmpty() && inventory.getItem(2).getItem() == itemStack.getItem() || inventory.getItem(2).isEmpty() && inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty();
+        return inventory.getItem(2).getItem() == itemStack.getItem() || inventory.getItem(2).isEmpty() && inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty() && inventory.getItem(4).getItem() == itemStack.getItem() || inventory.getItem(4).isEmpty();
     }
 
     private boolean hasOutputCountSpace(SimpleContainer inventory) {
-        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount() && inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount() && inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
+        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount() && inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount() && inventory.getItem(4).getMaxStackSize() > inventory.getItem(4).getCount();
     }
 
     @Override
     public int @NotNull [] getSlotsForFace(@NotNull Direction side) {
-        if (side == Direction.DOWN) return new int[]{1, 2, 3};
-        return new int[]{0};
+        if (side == Direction.DOWN) {
+            return new int[]{2, 3, 4};
+        }
+
+        if (side != Direction.UP) {
+            return new int[]{0};
+        }
+        return new int[]{1};
     }
 
     @Override
@@ -177,7 +201,7 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
 
     @Override
     public int getContainerSize() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -215,6 +239,14 @@ public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements W
         if (stack.getCount() > getMaxStackSize()) {
             stack.setCount(getMaxStackSize());
         }
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
+    public int getFuel() {
+        return fuel;
     }
 
     @Override

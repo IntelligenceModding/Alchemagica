@@ -1,5 +1,6 @@
 package de.artemis.alchemagica;
 
+import de.artemis.alchemagica.common.network.PacketHandler;
 import de.artemis.alchemagica.common.registration.ModBlocks;
 import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.Registration;
@@ -9,6 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,7 +41,14 @@ public class Alchemagica {
     };
 
     public Alchemagica() {
+        final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
         Registration.register();
+
+        bus.addListener(this::onCommonSetup);
     }
 
+    public void onCommonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(PacketHandler::init);
+    }
 }

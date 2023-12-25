@@ -1,11 +1,16 @@
 package de.artemis.alchemagica.common.containers.menus;
 
 import de.artemis.alchemagica.common.blockentities.CentrifugeBlockEntity;
+import de.artemis.alchemagica.common.containers.slots.ModFuelSlot;
 import de.artemis.alchemagica.common.containers.slots.ModInputSlot;
 import de.artemis.alchemagica.common.containers.slots.ModOutputSlot;
+import de.artemis.alchemagica.common.network.PacketHandler;
+import de.artemis.alchemagica.common.network.toclient.CentrifugeClientPacket;
 import de.artemis.alchemagica.common.registration.ModBlocks;
+import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -20,37 +25,40 @@ public class CentrifugeMenu extends AbstractContainerMenu {
     public final CentrifugeBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
+    private final Inventory inventory;
 
     public CentrifugeMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-        this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 
     public CentrifugeMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.CENTRIFUGE_MENU.get(), id);
-        checkContainerSize(inv, 4);
+        checkContainerSize(inv, 5);
         blockEntity = (CentrifugeBlockEntity) entity;
         this.level = inv.player.level;
         this.data = data;
+        this.inventory = inv;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new ModInputSlot(handler, 0, 79, 17)); // Input
-            this.addSlot(new ModOutputSlot(handler, 1, 56, 51)); // Output
-            this.addSlot(new ModOutputSlot(handler, 2, 79, 58)); // Output
-            this.addSlot(new ModOutputSlot(handler, 3, 102, 51)); // Output
+            this.addSlot(new ModFuelSlot(handler, 0, 8, 54, ModItems.ARCANE_CRYSTAL_POWDER.get().getDefaultInstance())); // Fuel
+            this.addSlot(new ModInputSlot(handler, 1, 79, 17)); // Input
+            this.addSlot(new ModOutputSlot(handler, 2, 56, 51)); // Output
+            this.addSlot(new ModOutputSlot(handler, 3, 79, 58)); // Output
+            this.addSlot(new ModOutputSlot(handler, 4, 102, 51)); // Output
         });
 
         addDataSlots(data);
     }
 
     public boolean isCrafting() {
-        return data.get(0) > 0;
+        return data.get(2) > 0;
     }
 
     public int getScaledProgress() {
-        int progress = this.data.get(0);
+        int progress = this.data.get(2);
         int maxProgress = this.data.get(1);  // Max Progress
         int progressArrowSize = 27; // This is the height in pixels of your arrow
 
@@ -66,7 +74,7 @@ public class CentrifugeMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
 
     @NotNull
     @Override
@@ -89,7 +97,6 @@ public class CentrifugeMenu extends AbstractContainerMenu {
                 return ItemStack.EMPTY;
             }
         } else {
-            System.out.println("Invalid slotIndex:" + index);
             return ItemStack.EMPTY;
         }
         // If stack size == 0 (the entire stack was moved) set slot contents to null
@@ -121,5 +128,12 @@ public class CentrifugeMenu extends AbstractContainerMenu {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    @Override
+    public void broadcastChanges() {
+        CentrifugeBlockEntity blockEntity = this.blockEntity;
+        PacketHandler.sendToClient(new CentrifugeClientPacket(blockEntity.getBlockPos(), blockEntity.getFuel()), (ServerPlayer) inventory.player);
+        super.broadcastChanges();
     }
 }

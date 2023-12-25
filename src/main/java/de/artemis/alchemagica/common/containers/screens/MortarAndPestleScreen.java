@@ -34,11 +34,19 @@ public class MortarAndPestleScreen extends AbstractContainerScreen<MortarAndPest
         this.blit(poseStack, x, y, 0, 0, imageWidth, imageHeight);
 
         renderProgressArrow(poseStack, x, y);
+        renderFuel(poseStack, x, y);
     }
 
     private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
         if (menu.isCrafting()) {
             blit(pPoseStack, x + 80, y + 35, 177, 14, menu.getScaledProgress(), 16);
+        }
+    }
+
+    private void renderFuel(PoseStack poseStack, int x, int y) {
+        if (menu.blockEntity.getFuel() > 0) {
+            int height = (int) (29F / 10F * menu.blockEntity.getFuel());
+            blit(poseStack, x + 12, y + 18 + 29 - height, 201, 29 - height, 8, height);
         }
     }
 

@@ -37,7 +37,6 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class CentrifugeBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
-
     private final LazyOptional<? extends IItemHandler>[] itemHandler = SidedInvWrapper.create(this, Direction.values());
     public NonNullList<ItemStack> items;
     protected final ContainerData data;

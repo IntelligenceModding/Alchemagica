@@ -44,10 +44,10 @@ public class CentrifugeMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new ModFuelSlot(handler, 0, 8, 54, ModItems.ARCANE_CRYSTAL_POWDER.get().getDefaultInstance())); // Fuel
-            this.addSlot(new ModInputSlot(handler, 1, 79, 17)); // Input
-            this.addSlot(new ModOutputSlot(handler, 2, 56, 51)); // Output
-            this.addSlot(new ModOutputSlot(handler, 3, 79, 58)); // Output
-            this.addSlot(new ModOutputSlot(handler, 4, 102, 51)); // Output
+            this.addSlot(new ModInputSlot(handler, 1, 80, 17)); // Input
+            this.addSlot(new ModOutputSlot(handler, 2, 57, 51)); // Output
+            this.addSlot(new ModOutputSlot(handler, 3, 80, 58)); // Output
+            this.addSlot(new ModOutputSlot(handler, 4, 103, 51)); // Output
         });
 
         addDataSlots(data);

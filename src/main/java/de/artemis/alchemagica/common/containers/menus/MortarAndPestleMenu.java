@@ -1,11 +1,16 @@
 package de.artemis.alchemagica.common.containers.menus;
 
 import de.artemis.alchemagica.common.blockentities.MortarAndPestleBlockEntity;
+import de.artemis.alchemagica.common.containers.slots.ModFuelSlot;
 import de.artemis.alchemagica.common.containers.slots.ModInputSlot;
 import de.artemis.alchemagica.common.containers.slots.ModOutputSlot;
+import de.artemis.alchemagica.common.network.PacketHandler;
+import de.artemis.alchemagica.common.network.toclient.MortarAndPestleClientPacket;
 import de.artemis.alchemagica.common.registration.ModBlocks;
+import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.registration.ModMenuTypes;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -19,24 +24,27 @@ public class MortarAndPestleMenu extends AbstractContainerMenu {
     public final MortarAndPestleBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
+    private final Inventory inventory;
 
     public MortarAndPestleMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-        this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
     }
 
     public MortarAndPestleMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.MORTAR_AND_PESTLE_MENU.get(), id);
-        checkContainerSize(inv, 2);
+        checkContainerSize(inv, 3);
         blockEntity = (MortarAndPestleBlockEntity) entity;
         this.level = inv.player.level;
         this.data = data;
+        this.inventory = inv;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new ModInputSlot(handler, 0, 56, 34)); // Input
-            this.addSlot(new ModOutputSlot(handler, 1, 116, 35)); // Output
+            this.addSlot(new ModFuelSlot(handler, 0, 8, 54, ModItems.ARCANE_CRYSTAL_POWDER.get().getDefaultInstance())); // Fuel
+            this.addSlot(new ModInputSlot(handler, 1, 56, 34)); // Input
+            this.addSlot(new ModOutputSlot(handler, 2, 116, 35)); // Output
         });
 
         addDataSlots(data);
@@ -47,7 +55,7 @@ public class MortarAndPestleMenu extends AbstractContainerMenu {
     }
 
     public int getScaledProgress() {
-        int progress = this.data.get(0);
+        int progress = this.data.get(2);
         int maxProgress = this.data.get(1);  // Max Progress
         int progressArrowSize = 22; // This is the height in pixels of your arrow
 
@@ -63,7 +71,7 @@ public class MortarAndPestleMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 3;  // must be the number of slots you have!
 
     @NotNull
     @Override
@@ -117,5 +125,12 @@ public class MortarAndPestleMenu extends AbstractContainerMenu {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    @Override
+    public void broadcastChanges() {
+        MortarAndPestleBlockEntity blockEntity = this.blockEntity;
+        PacketHandler.sendToClient(new MortarAndPestleClientPacket(blockEntity.getBlockPos(), blockEntity.getFuel()), (ServerPlayer) inventory.player);
+        super.broadcastChanges();
     }
 }

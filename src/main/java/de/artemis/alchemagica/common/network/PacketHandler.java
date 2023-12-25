@@ -3,6 +3,7 @@ package de.artemis.alchemagica.common.network;
 import de.artemis.alchemagica.Alchemagica;
 import de.artemis.alchemagica.common.network.base.IPacket;
 import de.artemis.alchemagica.common.network.toclient.CentrifugeClientPacket;
+import de.artemis.alchemagica.common.network.toclient.MortarAndPestleClientPacket;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -22,6 +23,7 @@ public class PacketHandler {
 
     public static void init() {
         registerServerToClient(CentrifugeClientPacket.class, CentrifugeClientPacket::decode);
+        registerServerToClient(MortarAndPestleClientPacket.class, MortarAndPestleClientPacket::decode);
     }
 
     public static <MSG extends IPacket> void registerServerToClient(Class<MSG> packet, Function<FriendlyByteBuf, MSG> decode) {

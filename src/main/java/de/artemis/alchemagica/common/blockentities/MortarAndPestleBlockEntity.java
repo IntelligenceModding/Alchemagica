@@ -3,6 +3,7 @@ package de.artemis.alchemagica.common.blockentities;
 import de.artemis.alchemagica.common.containers.menus.MortarAndPestleMenu;
 import de.artemis.alchemagica.common.recipe.MortarAndPestleRecipe;
 import de.artemis.alchemagica.common.registration.ModBlockEntities;
+import de.artemis.alchemagica.common.registration.ModItems;
 import de.artemis.alchemagica.common.util.ParticleUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -35,7 +36,8 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
     public NonNullList<ItemStack> items;
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 40;
+    private int maxProgress = 50;
+    private int fuel;
 
     public MortarAndPestleBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.MORTAR_AND_PESTLE.get(), blockPos, blockState);
@@ -43,8 +45,9 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> MortarAndPestleBlockEntity.this.progress;
+                    case 0 -> MortarAndPestleBlockEntity.this.fuel;
                     case 1 -> MortarAndPestleBlockEntity.this.maxProgress;
+                    case 2 -> MortarAndPestleBlockEntity.this.progress;
                     default -> 0;
                 };
             }
@@ -52,14 +55,15 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> MortarAndPestleBlockEntity.this.progress = value;
+                    case 0 -> MortarAndPestleBlockEntity.this.fuel = value;
                     case 1 -> MortarAndPestleBlockEntity.this.maxProgress = value;
+                    case 2 -> MortarAndPestleBlockEntity.this.progress = value;
                 }
             }
 
             @Override
             public int getCount() {
-                return 2;
+                return 3;
             }
         };
 
@@ -88,6 +92,7 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
     @Override
     protected void saveAdditional(@NotNull CompoundTag nbt) {
         ContainerHelper.saveAllItems(nbt, this.items, true);
+        nbt.putInt("fuel", fuel);
         super.saveAdditional(nbt);
     }
 
@@ -95,9 +100,17 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
     public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
         ContainerHelper.loadAllItems(nbt, this.items);
+        this.fuel = nbt.getInt("fuel");
     }
 
     public void tick() {
+        ItemStack itemstack = this.items.get(0);
+
+        if (this.fuel <= 0 && itemstack.is(ModItems.ARCANE_CRYSTAL_POWDER.get())) {
+            this.fuel = 10;
+            itemstack.shrink(1);
+            setChanged(level, this.getBlockPos(), this.getBlockState());
+        }
 
         if (hasRecipe()) {
             progress++;
@@ -108,6 +121,7 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
 
             if (progress >= maxProgress) {
                 craftItem();
+                fuel--;
             }
         } else {
             resetProgress();
@@ -122,15 +136,15 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
     private void craftItem() {
         Level level = getLevel();
         SimpleContainer inventory = new SimpleContainer(getContainerSize());
-        for (int i = 0; i < getContainerSize(); i++) {
-            inventory.setItem(i, getItem(i));
+        for (int i = 1; i < getContainerSize(); i++) {
+            inventory.setItem(i - 1, getItem(i));
         }
 
         Optional<MortarAndPestleRecipe> recipe = level.getRecipeManager().getRecipeFor(MortarAndPestleRecipe.Type.INSTANCE, inventory, level);
 
         if (hasRecipe()) {
-            removeItem(0, 1);
-            setItem(1, new ItemStack(recipe.get().getResultItem().getItem(), getItem(1).getCount() + 1));
+            removeItem(1, 1);
+            setItem(2, new ItemStack(recipe.get().getResultItem().getItem(), getItem(2).getCount() + 1));
 
             resetProgress();
         }
@@ -139,26 +153,32 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
     private boolean hasRecipe() {
         Level level = getLevel();
         SimpleContainer inventory = new SimpleContainer(getContainerSize());
-        for (int i = 0; i < getContainerSize(); i++) {
-            inventory.setItem(i, getItem(i));
+        for (int i = 1; i < getContainerSize(); i++) {
+            inventory.setItem(i - 1, getItem(i));
         }
 
         Optional<MortarAndPestleRecipe> recipe = level.getRecipeManager().getRecipeFor(MortarAndPestleRecipe.Type.INSTANCE, inventory, level);
-        return recipe.isPresent() && hasOutputCountSpace(inventory) && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem());
+        return recipe.isPresent() && hasOutputCountSpace(inventory) && canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem()) && fuel > 0;
     }
 
     private boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(1).getItem() == itemStack.getItem() || inventory.getItem(1).isEmpty();
+        return inventory.getItem(2).getItem() == itemStack.getItem() || inventory.getItem(2).isEmpty();
     }
 
     private boolean hasOutputCountSpace(SimpleContainer inventory) {
-        return inventory.getItem(1).getMaxStackSize() > inventory.getItem(1).getCount();
+        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
     }
 
     @Override
     public int @NotNull [] getSlotsForFace(@NotNull Direction side) {
-        if (side == Direction.DOWN) return new int[]{1};
-        return new int[]{0};
+        if (side == Direction.DOWN) {
+            return new int[]{2};
+        }
+
+        if (side != Direction.UP) {
+            return new int[]{0};
+        }
+        return new int[]{1};
     }
 
     @Override
@@ -173,7 +193,7 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
 
     @Override
     public int getContainerSize() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -211,6 +231,14 @@ public class MortarAndPestleBlockEntity extends BaseContainerBlockEntity impleme
         if (stack.getCount() > getMaxStackSize()) {
             stack.setCount(getMaxStackSize());
         }
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
+    public int getFuel() {
+        return fuel;
     }
 
     @Override

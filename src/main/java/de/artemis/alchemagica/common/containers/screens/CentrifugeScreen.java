@@ -39,7 +39,7 @@ public class CentrifugeScreen extends AbstractContainerScreen<CentrifugeMenu> {
 
     private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
         if (menu.isCrafting()) {
-            blit(pPoseStack, x + 98, y + 17, 177, 1, 7, menu.getScaledProgress());
+            blit(pPoseStack, x + 99, y + 17, 177, 1, 7, menu.getScaledProgress());
         }
     }
 

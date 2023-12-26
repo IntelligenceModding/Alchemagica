@@ -30,7 +30,7 @@ public class JEIAlchemagicaPlugin implements IModPlugin {
             new RecipeType<>(CentrifugeRecipeCategory.UID, CentrifugeRecipe.class);
 
     private static final int PLAYER_INVENTORY_COUNT = 36;
-    private static final int SLOT_DEFAULT = 0;
+    private static final int SLOT_DEFAULT = 1;
 
     @NotNull
     @Override
@@ -70,6 +70,6 @@ public class JEIAlchemagicaPlugin implements IModPlugin {
     @Override
     public void registerGuiHandlers(@NotNull IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(MortarAndPestleScreen.class, 80, 35, 22, 16, MORTAR_AND_PESTLE_RECIPE_TYPE);
-        registration.addRecipeClickArea(CentrifugeScreen.class, 98, 17, 8, 27, CENTRIFUGE_RECIPE_TYPE);
+        registration.addRecipeClickArea(CentrifugeScreen.class, 99, 17, 8, 27, CENTRIFUGE_RECIPE_TYPE);
     }
 }
